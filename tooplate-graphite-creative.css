@@ -19,16 +19,16 @@ html {
 
 body {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	background-color: #1a1a1a;
-	color: #d0d0d0;
+	background-color: #000000;
+	color: #FFFFFF;
 	line-height: 1.6;
 }
 
 /* HEADER */
 header {
 	height: 140px;
-	background-color: #121212;
-	border-bottom: 1px solid #2a2a2a;
+	background-color: #0a0a0a;
+	border-bottom: 2px solid #FFD700;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -53,24 +53,24 @@ header {
 	gap: 20px;
 	cursor: pointer;
 	text-decoration: none;
-	color: #d0d0d0;
+	color: #FFFFFF;
 	transition: all 0.3s ease;
 }
 
 .logo-area:hover {
-	opacity: 0.8;
+	color: #FFD700;
 }
 
 .logo-vector {
 	width: 80px;
 	height: 80px;
-	background: linear-gradient(135deg, #444 0%, #333 100%);
+	background: linear-gradient(135deg, #FFD700 0%, #FFC700 100%);
 	clip-path: polygon(0 0, 100% 0, 80% 100%, 0 80%);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-weight: bold;
-	color: white;
+	color: #000000;
 	font-size: 24px;
 }
 
@@ -82,7 +82,7 @@ header {
 
 .logo-text p {
 	font-size: 12px;
-	color: #777;
+	color: #FFD700;
 	margin-top: 4px;
 	letter-spacing: 2px;
 	text-transform: uppercase;
@@ -100,13 +100,13 @@ nav a {
 	padding: 0 32px;
 	display: flex;
 	align-items: center;
-	background-color: #222;
-	color: #d0d0d0;
+	background-color: #1a1a1a;
+	color: #FFFFFF;
 	text-decoration: none;
 	font-size: 15px;
 	font-weight: 600;
-	border-left: 2px solid #555;
-	border-bottom: 2px solid #555;
+	border-left: 2px solid #FFD700;
+	border-bottom: 2px solid #FFD700;
 	transition: all 0.3s ease;
 	position: relative;
 	overflow: hidden;
@@ -121,14 +121,14 @@ nav a::before {
 	left: 0;
 	width: 100%;
 	height: 0;
-	background-color: #444;
+	background-color: #FFD700;
 	transition: height 0.3s ease;
 	z-index: -1;
 }
 
 nav a:hover,
 nav a.active {
-	color: white;
+	color: #000000;
 }
 
 nav a:hover::before,
@@ -150,7 +150,7 @@ nav a.active::before {
 .menu-toggle span {
 	width: 28px;
 	height: 3px;
-	background-color: #d0d0d0;
+	background-color: #FFD700;
 	transition: all 0.3s ease;
 }
 
@@ -165,7 +165,7 @@ main {
 	display: flex;
 	align-items: center;
 	padding: 60px;
-	background-color: #1a1a1a;
+	background-color: #000000;
 	position: relative;
 	overflow: hidden;
 }
@@ -187,7 +187,7 @@ main {
 .hero-line {
 	width: 100px;
 	height: 3px;
-	background: #555;
+	background: #FFD700;
 	margin: 0 0 30px 0;
 }
 
@@ -200,7 +200,7 @@ main {
 
 .hero-left p {
 	font-size: 18px;
-	color: #999;
+	color: #CCCCCC;
 	margin-bottom: 40px;
 	line-height: 1.8;
 }
@@ -208,14 +208,14 @@ main {
 .cta-button {
 	display: inline-block;
 	padding: 18px 50px;
-	background-color: #333;
-	color: white;
+	background-color: #FFD700;
+	color: #000000;
 	text-decoration: none;
 	font-weight: 600;
 	font-size: 15px;
 	border: none;
-	border-left: 2px solid #555;
-	border-bottom: 2px solid #555;
+	border-left: 2px solid #FFC700;
+	border-bottom: 2px solid #FFC700;
 	transition: all 0.3s ease;
 	letter-spacing: 0.5px;
 	cursor: pointer;
@@ -231,13 +231,13 @@ main {
 	left: 0;
 	width: 100%;
 	height: 0;
-	background-color: #444;
+	background-color: #FFC700;
 	transition: height 0.3s ease;
 	z-index: -1;
 }
 
 .cta-button:hover {
-	color: white;
+	color: #000000;
 }
 
 .cta-button:hover::before {
@@ -250,9 +250,9 @@ main {
 	position: relative;
 	height: 400px;
 	overflow: hidden;
-	border: 1px solid #2a2a2a;
-	background-color: #222;
-	background-image: linear-gradient(135deg, #222 0%, #2a2a2a 100%);
+	border: 2px solid #FFD700;
+	background-color: #1a1a1a;
+	background-image: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
 }
 
 .slide {
@@ -286,7 +286,7 @@ main {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	color: #555;
+	color: #FFD700;
 	font-size: 18px;
 	text-align: center;
 	opacity: 0;
@@ -319,23 +319,23 @@ main {
 .dot {
 	width: 12px;
 	height: 12px;
-	background-color: rgba(255, 255, 255, 0.4);
+	background-color: rgba(255, 215, 0, 0.4);
 	border-radius: 50%;
 	cursor: pointer;
 	transition: all 0.3s ease;
-	border: 1px solid rgba(255, 255, 255, 0.6);
+	border: 1px solid rgba(255, 215, 0, 0.6);
 }
 
 .dot.active {
-	background-color: white;
+	background-color: #FFD700;
 	transform: scale(1.2);
 }
 
 /* SERVICES SECTION - REDESIGNED WITH NUMBERS */
 .section-services {
 	padding: 120px 60px;
-	background-color: #121212;
-	border-top: 1px solid #2a2a2a;
+	background-color: #0a0a0a;
+	border-top: 2px solid #FFD700;
 }
 
 .services-container {
@@ -360,8 +360,8 @@ main {
 .service-card {
 	padding: 40px;
 	background-color: transparent;
-	border-right: 1px solid #2a2a2a;
-	border-bottom: 1px solid #2a2a2a;
+	border-right: 1px solid #333;
+	border-bottom: 1px solid #333;
 	transition: all 0.3s ease;
 	position: relative;
 	overflow: hidden;
@@ -382,7 +382,7 @@ main {
 	left: 0;
 	width: 4px;
 	height: 0;
-	background: linear-gradient(180deg, #555 0%, #333 100%);
+	background: linear-gradient(180deg, #FFD700 0%, #FFC700 100%);
 	transition: height 0.3s ease;
 }
 
@@ -393,7 +393,7 @@ main {
 .service-number {
 	font-size: 48px;
 	font-weight: 300;
-	color: #333;
+	color: #FFD700;
 	margin-bottom: 20px;
 	font-family: 'Courier New', monospace;
 	position: relative;
@@ -401,7 +401,7 @@ main {
 }
 
 .service-card:hover .service-number {
-	color: #555;
+	color: #FFC700;
 }
 
 .service-number::after {
@@ -411,7 +411,7 @@ main {
 	left: 0;
 	width: 100%;
 	height: 1px;
-	background: #555;
+	background: #FFD700;
 	transform: scaleX(0);
 	transition: transform 0.3s ease;
 }
@@ -427,7 +427,7 @@ main {
 }
 
 .service-card p {
-	color: #999;
+	color: #AAAAAA;
 	font-size: 15px;
 	line-height: 1.8;
 }
@@ -435,8 +435,8 @@ main {
 /* PORTFOLIO SECTION */
 .section-portfolio {
 	padding: 120px 60px;
-	background-color: #1a1a1a;
-	border-top: 1px solid #2a2a2a;
+	background-color: #000000;
+	border-top: 2px solid #FFD700;
 }
 
 .portfolio-container {
@@ -452,8 +452,8 @@ main {
 
 .portfolio-item {
 	aspect-ratio: 16/10;
-	background: #222;
-	border: 1px solid #2a2a2a;
+	background: #1a1a1a;
+	border: 2px solid #FFD700;
 	overflow: hidden;
 	position: relative;
 	cursor: pointer;
@@ -511,14 +511,14 @@ main {
 
 .portfolio-label p {
 	font-size: 13px;
-	color: #777;
+	color: #FFD700;
 }
 
 /* ABOUT SECTION */
 .section-about {
 	padding: 120px 60px;
-	background-color: #121212;
-	border-top: 1px solid #2a2a2a;
+	background-color: #0a0a0a;
+	border-top: 2px solid #FFD700;
 }
 
 .about-container {
@@ -538,20 +538,20 @@ main {
 }
 
 .about-content p {
-	color: #999;
+	color: #AAAAAA;
 	margin-bottom: 24px;
 	line-height: 1.9;
 	font-size: 15px;
 }
 
 .about-content p a {
-	color: #d0d0d0;
+	color: #FFD700;
 	text-decoration: underline;
 	transition: color 0.3s ease;
 }
 
 .about-content p a:hover {
-	color: white;
+	color: #FFC700;
 }
 
 .about-blocks {
@@ -562,9 +562,9 @@ main {
 
 .about-block {
 	padding: 30px;
-	background-color: #222;
-	border-left: 4px solid #555;
-	border-top: 1px solid #2a2a2a;
+	background-color: #1a1a1a;
+	border-left: 4px solid #FFD700;
+	border-top: 1px solid #333;
 	border-right: 1px solid #2a2a2a;
 	border-bottom: 1px solid #2a2a2a;
 }
@@ -573,20 +573,20 @@ main {
 	font-size: 16px;
 	margin-bottom: 12px;
 	font-weight: 700;
-	color: #d0d0d0;
+	color: #FFFFFF;
 }
 
 .about-block p {
 	font-size: 13px;
-	color: #777;
+	color: #AAAAAA;
 	margin-bottom: 0;
 }
 
 /* CONTACT SECTION - IMPROVED 2 COLUMN DESIGN */
 .section-contact {
 	padding: 120px 60px;
-	background-color: #1a1a1a;
-	border-top: 1px solid #2a2a2a;
+	background-color: #000000;
+	border-top: 2px solid #FFD700;
 }
 
 .contact-container {
@@ -608,7 +608,7 @@ main {
 }
 
 .contact-info p {
-	color: #999;
+	color: #AAAAAA;
 	margin-bottom: 40px;
 	font-size: 15px;
 	line-height: 1.8;
@@ -635,12 +635,12 @@ main {
 	top: 10px;
 	width: 12px;
 	height: 1px;
-	background-color: #555;
+	background-color: #FFD700;
 }
 
 .contact-item label {
 	font-size: 13px;
-	color: #777;
+	color: #FFD700;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-weight: 600;
@@ -648,14 +648,14 @@ main {
 
 .contact-item a,
 .contact-item p {
-	color: #d0d0d0;
+	color: #FFFFFF;
 	text-decoration: none;
 	font-size: 16px;
 	transition: color 0.3s ease;
 }
 
 .contact-item a:hover {
-	color: #fff;
+	color: #FFD700;
 }
 
 /* CONTACT FORM */
@@ -683,7 +683,7 @@ main {
 
 .form-group label {
 	font-size: 13px;
-	color: #777;
+	color: #FFD700;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-weight: 600;
@@ -692,9 +692,9 @@ main {
 .form-group input,
 .form-group textarea {
 	padding: 14px 16px;
-	background-color: #222;
+	background-color: #1a1a1a;
 	border: 1px solid #333;
-	color: #d0d0d0;
+	color: #FFFFFF;
 	font-family: inherit;
 	font-size: 14px;
 	transition: all 0.3s ease;
@@ -703,7 +703,7 @@ main {
 .form-group input:focus,
 .form-group textarea:focus {
 	outline: none;
-	border-color: #555;
+	border-color: #FFD700;
 	background-color: #2a2a2a;
 }
 
@@ -714,11 +714,11 @@ main {
 
 .submit-btn {
 	padding: 16px 40px;
-	background-color: #333;
-	color: white;
+	background-color: #FFD700;
+	color: #000000;
 	border: none;
-	border-left: 2px solid #555;
-	border-bottom: 2px solid #555;
+	border-left: 2px solid #FFC700;
+	border-bottom: 2px solid #FFC700;
 	font-weight: 600;
 	font-size: 14px;
 	cursor: pointer;
@@ -739,13 +739,13 @@ main {
 	left: 0;
 	width: 100%;
 	height: 0;
-	background-color: #444;
+	background-color: #FFC700;
 	transition: height 0.3s ease;
 	z-index: -1;
 }
 
 .submit-btn:hover {
-	color: white;
+	color: #000000;
 }
 
 .submit-btn:hover::before {
@@ -754,22 +754,22 @@ main {
 
 /* FOOTER */
 footer {
-	background-color: #121212;
-	border-top: 1px solid #2a2a2a;
+	background-color: #0a0a0a;
+	border-top: 2px solid #FFD700;
 	padding: 40px 60px;
 	text-align: center;
-	color: #777;
+	color: #FFD700;
 	font-size: 13px;
 }
 
 footer a {
-	color: #999;
+	color: #FFD700;
 	text-decoration: none;
 	transition: color 0.3s ease;
 }
 
 footer a:hover {
-	color: #d0d0d0;
+	color: #FFC700;
 }
 
 /* RESPONSIVE */
@@ -846,7 +846,7 @@ footer a:hover {
 	}
 
 	.service-card:nth-child(3n) {
-		border-right: 1px solid #2a2a2a;
+		border-right: 1px solid #333;
 	}
 }
 
@@ -885,8 +885,8 @@ footer a:hover {
 }
 
 .modal-content {
-	background-color: #1a1a1a;
-	border: 1px solid #2a2a2a;
+	background-color: #000000;
+	border: 2px solid #FFD700;
 	max-width: 900px;
 	width: 90%;
 	max-height: 90vh;
@@ -902,7 +902,7 @@ footer a:hover {
 	flex-shrink: 0;
 	aspect-ratio: 4 / 3;
 	object-fit: cover;
-	border: 1px solid #2a2a2a;
+	border: 2px solid #FFD700;
 	align-self: flex-start;
 }
 
@@ -916,22 +916,22 @@ footer a:hover {
 	font-size: 28px;
 	margin-bottom: 8px;
 	font-weight: 700;
-	color: #d0d0d0;
+	color: #FFFFFF;
 }
 
 .modal-details p#modalCategory {
-	color: #999;
+	color: #FFD700;
 	font-size: 14px;
 	font-weight: 600;
 	letter-spacing: 1px;
 	margin: 0 0 20px 0;
 	text-transform: uppercase;
 	padding-bottom: 20px;
-	border-bottom: 1px solid #2a2a2a;
+	border-bottom: 1px solid #333;
 }
 
 .modal-details p#modalDescription {
-	color: #999;
+	color: #AAAAAA;
 	font-size: 15px;
 	line-height: 1.8;
 	margin-bottom: 20px;
@@ -944,7 +944,7 @@ footer a:hover {
 }
 
 .modal-details li {
-	color: #999;
+	color: #AAAAAA;
 	font-size: 15px;
 	line-height: 1.8;
 	margin-bottom: 12px;
@@ -956,7 +956,7 @@ footer a:hover {
 	content: '•';
 	position: absolute;
 	left: 0;
-	color: #555;
+	color: #FFD700;
 	font-size: 20px;
 	font-weight: bold;
 }
@@ -964,14 +964,14 @@ footer a:hover {
 .modal-visit-btn {
 	display: inline-block;
 	padding: 14px 40px;
-	background-color: #333;
-	color: white;
+	background-color: #FFD700;
+	color: #000000;
 	text-decoration: none;
 	font-weight: 600;
 	font-size: 14px;
 	border: none;
-	border-left: 2px solid #555;
-	border-bottom: 2px solid #555;
+	border-left: 2px solid #FFC700;
+	border-bottom: 2px solid #FFC700;
 	transition: all 0.3s ease;
 	letter-spacing: 0.5px;
 	cursor: pointer;
@@ -988,13 +988,13 @@ footer a:hover {
 	left: 0;
 	width: 100%;
 	height: 0;
-	background-color: #444;
+	background-color: #FFC700;
 	transition: height 0.3s ease;
 	z-index: -1;
 }
 
 .modal-visit-btn:hover {
-	color: white;
+	color: #000000;
 }
 
 .modal-visit-btn:hover::before {
@@ -1010,7 +1010,7 @@ footer a:hover {
 	height: 40px;
 	background: none;
 	border: none;
-	color: #d0d0d0;
+	color: #FFD700;
 	font-size: 28px;
 	cursor: pointer;
 	transition: all 0.3s ease;
@@ -1023,7 +1023,7 @@ footer a:hover {
 }
 
 .modal-close:hover {
-	color: white;
+	color: #FFC700;
 	transform: rotate(90deg);
 }
 
@@ -1078,16 +1078,16 @@ footer a:hover {
 }
 
 .modal-content::-webkit-scrollbar-track {
-	background: #121212;
+	background: #000000;
 }
 
 .modal-content::-webkit-scrollbar-thumb {
-	background: #333;
+	background: #FFD700;
 	border-radius: 3px;
 }
 
 .modal-content::-webkit-scrollbar-thumb:hover {
-	background: #444;
+	background: #FFC700;
 }
 
 @media (max-width: 768px) {
@@ -1117,11 +1117,11 @@ footer a:hover {
 		top: 80px;
 		right: 20px;
 		left: auto;
-		background-color: #121212;
+		background-color: #0a0a0a;
 		flex-direction: column;
 		padding: 20px;
 		gap: 10px;
-		border-bottom: 1px solid #2a2a2a;
+		border-bottom: 2px solid #FFD700;
 		max-height: calc(100vh - 80px);
 		overflow-y: auto;
 		z-index: 999;
@@ -1138,16 +1138,16 @@ footer a:hover {
 	}
 
 	nav::-webkit-scrollbar-track {
-		background: #1a1a1a;
+		background: #000000;
 	}
 
 	nav::-webkit-scrollbar-thumb {
-		background: #333;
+		background: #FFD700;
 		border-radius: 3px;
 	}
 
 	nav::-webkit-scrollbar-thumb:hover {
-		background: #444;
+		background: #FFC700;
 	}
 
 	nav a {
@@ -1249,7 +1249,7 @@ footer a:hover {
 
 	.service-card {
 		border-right: none;
-		border-bottom: 1px solid #2a2a2a;
+		border-bottom: 1px solid #333;
 	}
 
 	.service-card:last-child {
