@@ -1,5 +1,12 @@
 import * as Lu from 'react-icons/lu';
 import React from 'react';
+import fs from 'node:fs';
+import path from 'node:path';
+import { asset } from '../lib/i18n';
+
+// Official brand icons you add to public/img/brand/ (e.g. whatsapp.svg) replace the
+// generic icon automatically. They are drawn in the current text color via a CSS mask.
+const brandFile = (name: string) => (fs.existsSync(path.resolve('public/img/brand', `${name}.svg`)) ? asset(`img/brand/${name}.svg`) : null);
 
 // Semantic icon names → Lucide icons. Directional icons get the `flip` class so
 // they mirror automatically in RTL.
@@ -25,6 +32,8 @@ const map: Record<string, keyof typeof Lu> = {
 const directional = new Set(['arrow', 'arrowBack', 'arrowUpRight', 'chevron', 'send']);
 
 export function Icon({ name, size = 20, className = '' }: { name: string; size?: number; className?: string }) {
+  const brand = name === 'whatsapp' ? brandFile('whatsapp') : null;
+  if (brand) return <span aria-hidden="true" className={`icon icon-brand ${className}`} style={{ width: size, height: size, WebkitMaskImage: `url(${brand})`, maskImage: `url(${brand})` }} />;
   const C = (Lu as any)[map[name] || 'LuSparkles'];
   const cls = ['icon', directional.has(name) ? 'flip' : '', className].filter(Boolean).join(' ');
   return <C aria-hidden="true" focusable="false" size={size} className={cls} strokeWidth={1.75} />;

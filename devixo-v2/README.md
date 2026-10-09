@@ -62,3 +62,8 @@ Components are plain React and content is plain typed data, so they move directl
 App Router project (`app/[lang]/…`). Replace the files in `src/data/` with CMS queries using the same
 shapes (`Project`, `Service`, `Tech`, `Faq`, `Post` — each field has `{ en, ar }`). The `/admin/`
 page shows the intended editing workflows for that CMS.
+
+## Brand icons
+
+Drop an official icon as `public/img/brand/whatsapp.svg` (single-color SVG) and rebuild:
+every WhatsApp button switches to it automatically and takes the button's text color.

@@ -1006,3 +1006,4 @@ div.filter-empty[hidden] { display: none; }
   .site-footer .footer-top { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 760px) { .site-footer .footer-bottom { padding-bottom: 88px; } }
+.icon-brand { display: inline-block; flex: none; background: currentColor; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center; -webkit-mask-size: contain; mask-size: contain; }
