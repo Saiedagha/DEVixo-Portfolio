@@ -12,7 +12,7 @@ npm run build:prod   # → dist/  (hides empty case-study sections)
 npm run preview      # serve dist/ locally
 ```
 
-`dist/` is already built and can be deployed as-is (GitHub Pages, Vercel, Netlify, any static host).
+`dist/` is already built. On Vercel, the `vercel.json` at the repository root builds this folder automatically — keep the project's Root Directory empty.
 To serve from a sub-folder, build with `BASE_PATH=/sub-folder npm run build`.
 
 ## Structure
