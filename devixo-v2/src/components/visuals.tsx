@@ -35,14 +35,14 @@ const Caption = ({ lang }: { lang: Lang }) => (
 export function HeroComposition({ lang }: { lang: Lang }) {
   return (
     <div className="hero-visual" aria-label={tr(lang, 'Websites and stores built by Devixo on desktop and mobile', 'مواقع ومتاجر من تنفيذ ديفيكسو على الكمبيوتر والموبايل')} role="img">
-      <Browser url="velcot.net" className="hv-desktop">
-        <img src={asset('img/projects/velcot.webp')} alt="" width={981} height={618} fetchPriority="high" />
+      <Browser url="towntechshop.com" className="hv-desktop">
+        <img src={asset('img/projects/towntech.webp')} alt="" width={1200} height={750} fetchPriority="high" />
       </Browser>
       <Phone className="hv-phone">
-        <img src={asset('img/projects/heyba.webp')} alt="" />
+        <img src={asset('img/projects/eva-mobile.webp')} alt="" className="phone-shot" />
       </Phone>
-      <Browser url="saiedagha.github.io" className="hv-small">
-        <img src={asset('img/projects/elhamd.webp')} alt="" loading="lazy" />
+      <Browser url="nushea.shop" className="hv-small">
+        <img src={asset('img/projects/nushea.webp')} alt="" loading="lazy" />
       </Browser>
       <div className="hv-badge" aria-hidden="true">
         <span className="hv-badge-icon"><Icon name="code" size={18} /></span>
