@@ -2,7 +2,6 @@ import React from 'react';
 import { Lang, t, href, asset, dir, ui, L } from '../lib/i18n';
 import { site, waLink } from '../data/site';
 import { services } from '../data/services';
-import { projects } from '../data/projects';
 import { Icon } from './Icon';
 
 export type PageMeta = {
@@ -127,30 +126,24 @@ function Header({ lang, path }: { lang: Lang; path: string }) {
 }
 
 function Footer({ lang, path }: { lang: Lang; path: string }) {
-  const year = 2026;
-  const col = (title: string, links: { label: string; url: string; ext?: boolean }[]) => (
-    <div className="footer-col">
-      <h2 className="footer-title">{title}</h2>
-      <ul>
-        {links.map((l) => (
-          <li key={l.url + l.label}>
-            <a href={l.url} {...(l.ext ? { target: '_blank', rel: 'noopener' } : {})}>{l.label}</a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+  const links = [
+    [ui.nav.services, 'services'], [ui.nav.work, 'work'], [ui.nav.about, 'about'], [ui.nav.technologies, 'technologies'],
+    [ui.nav.blog, 'blog'], [ui.nav.faq, 'faq'], [ui.nav.contact, 'contact'],
+  ] as const;
   return (
     <footer className="site-footer">
       <div className="container">
         <div className="footer-top">
           <div className="footer-brand">
             <Logo lang={lang} variant="dark" />
-            <p>{t(site.description, lang)}</p>
-            <div className="footer-contact">
-              <a href={waLink()} target="_blank" rel="noopener" className="footer-wa"><Icon name="whatsapp" size={18} /> <span dir="ltr">{site.phone}</span></a>
-              {site.email && <a href={`mailto:${site.email}`}><Icon name="mail" size={18} /> {site.email}</a>}
-            </div>
+            <p>{t(site.tagline, lang)}</p>
+          </div>
+          <nav className="footer-nav" aria-label={lang === 'ar' ? 'روابط الموقع' : 'Footer'}>
+            {links.map(([label, p]) => <a key={p} href={href(lang, p)}>{t(label, lang)}</a>)}
+          </nav>
+          <div className="footer-contact">
+            <a href={waLink()} target="_blank" rel="noopener" className="footer-wa"><Icon name="whatsapp" size={18} /> <span dir="ltr">{site.phone}</span></a>
+            {site.email && <a href={`mailto:${site.email}`}><Icon name="mail" size={18} /> {site.email}</a>}
             <div className="footer-social">
               {site.socials.map((s) => (
                 <a key={s.name} href={s.url} target="_blank" rel="noopener" aria-label={s.name}>
@@ -159,21 +152,9 @@ function Footer({ lang, path }: { lang: Lang; path: string }) {
               ))}
             </div>
           </div>
-          {col(t(ui.nav.services, lang), services.map((s) => ({ label: t(s.title, lang), url: href(lang, `services/${s.slug}`) })))}
-          {col(t(ui.nav.work, lang), [
-            ...projects.filter((p) => p.featured).map((p) => ({ label: p.title, url: href(lang, `work/${p.slug}`) })),
-            { label: t(ui.cta.allProjects, lang), url: href(lang, 'work') },
-          ])}
-          {col(lang === 'ar' ? 'الشركة' : 'Company', [
-            { label: t(ui.nav.about, lang), url: href(lang, 'about') },
-            { label: t(ui.nav.technologies, lang), url: href(lang, 'technologies') },
-            { label: t(ui.nav.blog, lang), url: href(lang, 'blog') },
-            { label: t(ui.nav.faq, lang), url: href(lang, 'faq') },
-            { label: t(ui.nav.contact, lang), url: href(lang, 'contact') },
-          ])}
         </div>
         <div className="footer-bottom">
-          <p>© {year} DEVixo. {lang === 'ar' ? 'جميع الحقوق محفوظة.' : 'All rights reserved.'}</p>
+          <p>© 2026 DEVixo. {lang === 'ar' ? 'جميع الحقوق محفوظة.' : 'All rights reserved.'}</p>
           <div className="footer-legal">
             <a href={href(lang, 'privacy')}>{lang === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}</a>
             <a href={href(lang, 'terms')}>{lang === 'ar' ? 'الشروط والأحكام' : 'Terms & Conditions'}</a>
