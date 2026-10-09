@@ -1,0 +1,24 @@
+{
+  "name": "devixo-site",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "DEVixo bilingual (EN/AR) website — React components rendered to static HTML.",
+  "scripts": {
+    "build": "tsx src/build.tsx",
+    "build:prod": "SHOW_CMS_PLACEHOLDERS=false tsx src/build.tsx",
+    "preview": "npx serve dist"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-icons": "^5.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.6.0"
+  }
+}
