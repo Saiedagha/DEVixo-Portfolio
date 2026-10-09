@@ -65,19 +65,25 @@ export function Home({ lang }: { lang: Lang }) {
 
       {/* C — Capabilities strip */}
       <section className="cap-strip" aria-label={tr(lang, 'What we do', 'ما نقدمه')}>
-        <div className="container">
-          <ul>
-            {[
-              ['store', tr(lang, 'E-commerce Development', 'تطوير المتاجر الإلكترونية')],
-              ['code', tr(lang, 'Custom Web Development', 'تطوير ويب مخصص')],
-              ['layers', tr(lang, 'Business Systems', 'أنظمة الأعمال')],
-              ['pen', tr(lang, 'UI/UX Design', 'تصميم الواجهات')],
-              ['wrench', tr(lang, 'Ongoing Support', 'دعم مستمر')],
-            ].map(([ic, label]) => (
-              <li key={ic}><Icon name={ic} size={20} /> {label}</li>
-            ))}
-          </ul>
-        </div>
+        {(() => {
+          const caps = [
+            ['store', tr(lang, 'E-commerce Development', 'تطوير المتاجر الإلكترونية')],
+            ['code', tr(lang, 'Custom Web Development', 'تطوير ويب مخصص')],
+            ['layers', tr(lang, 'Business Systems', 'أنظمة الأعمال')],
+            ['pen', tr(lang, 'UI/UX Design', 'تصميم الواجهات')],
+            ['wrench', tr(lang, 'Ongoing Support', 'دعم مستمر')],
+          ];
+          const list = (hidden: boolean) => (
+            <ul aria-hidden={hidden || undefined} className={hidden ? 'cap-dup' : undefined}>
+              {caps.map(([ic, label]) => <li key={ic}><Icon name={ic} size={20} /> {label}</li>)}
+            </ul>
+          );
+          return (
+            <div className="container cap-marquee">
+              <div className="cap-track">{list(false)}{list(true)}</div>
+            </div>
+          );
+        })()}
       </section>
 
       {/* D — Services */}

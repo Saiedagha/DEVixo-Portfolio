@@ -240,3 +240,55 @@
     edit && edit.addEventListener('click', function () { success.hidden = true; form.hidden = false; form.querySelector('input').focus(); });
   }
 })();
+
+/* Motion helpers: stagger, parallax, scroll progress (skipped for reduced motion) */
+(function () {
+  'use strict';
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var doc = document.documentElement;
+
+  // Stagger children of grids and lists
+  document.querySelectorAll('.grid, .project-grid, .why-list, .process, .principles, .offer-grid, .type-grid, .platforms, .systems, .tech-grid, .criteria, .flow, .guide-list, .stack-table').forEach(function (g) {
+    var i = 0;
+    Array.prototype.forEach.call(g.children, function (c) {
+      if (!c.classList.contains('reveal') && !g.classList.contains('process')) c.classList.add('reveal');
+      c.style.setProperty('--d', String(i++ % 8));
+    });
+  });
+  // Section headings and text blocks also rise in
+  document.querySelectorAll('.section-head, .why-intro, .faq-intro, .split-text, .cta-inner, .founder > *, .tech-inline, .legend').forEach(function (el) { el.classList.add('reveal'); });
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    document.querySelectorAll('.reveal:not(.is-in), .mock-figure').forEach(function (el) { io.observe(el); });
+  }
+
+  // Mouse parallax on the hero composition
+  var hv = document.querySelector('.hero-visual');
+  if (hv && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    var hero = hv.closest('.hero');
+    hero.addEventListener('mousemove', function (e) {
+      var r = hero.getBoundingClientRect();
+      hv.style.setProperty('--mx', ((e.clientX - r.left) / r.width - .5).toFixed(3));
+      hv.style.setProperty('--my', ((e.clientY - r.top) / r.height - .5).toFixed(3));
+    });
+    hero.addEventListener('mouseleave', function () { hv.style.setProperty('--mx', 0); hv.style.setProperty('--my', 0); });
+  }
+
+  // Scroll progress bar
+  var bar = document.createElement('div');
+  bar.className = 'scroll-progress';
+  bar.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(bar);
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(function () {
+      var max = doc.scrollHeight - innerHeight;
+      bar.style.transform = 'scaleX(' + (max > 0 ? scrollY / max : 0) + ')';
+      ticking = false;
+    });
+  }, { passive: true });
+})();
