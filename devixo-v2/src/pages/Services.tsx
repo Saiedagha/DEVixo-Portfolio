@@ -277,7 +277,7 @@ function MobileExtra({ lang }: { lang: Lang }) {
         <div className="split-text">
           <SectionHead id="m-title" num="02" eyebrow={tr(lang, 'Choosing the approach', 'اختيار الطريقة')} title={tr(lang, 'Native app, cross-platform, or web app?', 'تطبيق أصلي أم متعدد المنصات أم تطبيق ويب؟')} lead={tr(lang, 'The right answer depends on your users and budget. We’ll explain the trade-offs before you commit.', 'الإجابة تعتمد على مستخدميك وميزانيتك، وسنشرح لك المزايا والعيوب قبل أن تقرر.')} />
           <ul className="bullet-list">
-            <li><Icon name="check" size={16} /> {tr(lang, 'Cross-platform frameworks such as React Native or Flutter, when they suit the project', 'أطر عمل متعددة المنصات مثل React Native أو Flutter عندما تناسب المشروع')}</li>
+            <li><Icon name="check" size={16} /> {tr(lang, 'Cross-platform frameworks such as React Native, when they suit the project', 'أطر عمل متعددة المنصات مثل React Native عندما تناسب المشروع')}</li>
             <li><Icon name="check" size={16} /> {tr(lang, 'Installable web apps for a faster, lower-cost first version', 'تطبيقات ويب قابلة للتثبيت لإصدار أول أسرع وأقل تكلفة')}</li>
             <li><Icon name="check" size={16} /> {tr(lang, 'One backend shared by your website, dashboard, and app', 'خادم واحد مشترك بين موقعك ولوحة التحكم والتطبيق')}</li>
           </ul>

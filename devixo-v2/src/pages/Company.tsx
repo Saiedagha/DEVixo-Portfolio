@@ -98,7 +98,7 @@ export function About({ lang }: { lang: Lang }) {
       <Section labelledBy="exp-title">
         <SectionHead id="exp-title" num="05" eyebrow={tr(lang, 'Expertise', 'مجالات الخبرة')} title={tr(lang, 'Where we’re strongest', 'أين نتميّز')} action={<a className="link-arrow" href={href(lang, 'technologies')}>{t(ui.nav.technologies, lang)} <Icon name="arrow" size={16} /></a>} />
         <ul className="chips chips-lg">
-          {[tr(lang, 'Shopify stores & Liquid', 'متاجر شوبيفاي وLiquid'), tr(lang, 'Arabic RTL interfaces', 'واجهات عربية RTL'), tr(lang, 'Responsive front-end', 'واجهات متجاوبة'), 'React & Next.js', tr(lang, 'Admin dashboards', 'لوحات التحكم'), tr(lang, 'Supabase & PostgreSQL', 'Supabase وPostgreSQL'), tr(lang, 'Payment & shipping integrations', 'ربط الدفع والشحن'), tr(lang, 'Website maintenance', 'صيانة المواقع')].map((x) => <li key={x} className="chip chip-strong">{x}</li>)}
+          {[tr(lang, 'Shopify stores & Liquid', 'متاجر شوبيفاي وLiquid'), tr(lang, 'Arabic RTL interfaces', 'واجهات عربية RTL'), tr(lang, 'Responsive front-end', 'واجهات متجاوبة'), 'React & Next.js', tr(lang, 'Admin dashboards', 'لوحات التحكم'), 'Supabase', tr(lang, 'Payment & shipping integrations', 'ربط الدفع والشحن'), tr(lang, 'Website maintenance', 'صيانة المواقع')].map((x) => <li key={x} className="chip chip-strong">{x}</li>)}
         </ul>
       </Section>
       <CtaBand lang={lang} />

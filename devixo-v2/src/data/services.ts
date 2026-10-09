@@ -120,7 +120,7 @@ export const services: Service[] = [
       { title: { en: 'Reporting dashboards', ar: 'لوحات التقارير' }, text: { en: 'Clear views of the numbers you already track, in real time.', ar: 'عرض واضح للأرقام التي تتابعها بالفعل، لحظة بلحظة.' } },
     ],
     relatedProjects: ['towntech'],
-    relatedTech: ['react', 'nextjs', 'typescript', 'nodejs', 'supabase', 'postgresql'],
+    relatedTech: ['react', 'nextjs', 'typescript', 'nodejs', 'supabase'],
     faqIds: ['platform-vs-custom', 'ownership', 'timelines'],
     seo: {
       title: { en: 'Custom Software & Web Application Development', ar: 'تطوير البرمجيات وتطبيقات الويب المخصصة' },
@@ -147,7 +147,7 @@ export const services: Service[] = [
     ],
     offerings: [],
     relatedProjects: ['towntech'],
-    relatedTech: ['react', 'nextjs', 'nodejs', 'postgresql', 'supabase'],
+    relatedTech: ['react', 'nextjs', 'nodejs', 'supabase'],
     faqIds: ['platform-vs-custom', 'timelines', 'maintenance'],
     seo: {
       title: { en: 'Business Management Systems — ERP, CRM, Inventory, POS', ar: 'أنظمة إدارة الأعمال — ERP وCRM والمخزون ونقاط البيع' },
@@ -181,7 +181,7 @@ export const services: Service[] = [
       { title: { en: 'Updates after launch', ar: 'تحديثات بعد الإطلاق' }, text: { en: 'OS updates, fixes, and new features over time.', ar: 'تحديثات أنظمة التشغيل والإصلاحات ومميزات جديدة مع الوقت.' } },
     ],
     relatedProjects: [],
-    relatedTech: ['react-native', 'flutter', 'firebase', 'supabase'],
+    relatedTech: ['react-native', 'firebase', 'supabase'],
     faqIds: ['project-types', 'timelines', 'ownership'],
     seo: {
       title: { en: 'Mobile App Development — Android & iOS', ar: 'تطوير تطبيقات الموبايل — أندرويد وiOS' },

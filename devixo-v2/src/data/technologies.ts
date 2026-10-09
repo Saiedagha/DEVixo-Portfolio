@@ -56,24 +56,18 @@ export const technologies: Tech[] = [
   { id: 'nodejs', name: 'Node.js', category: 'backend', kind: k.runtime, level: 'core' },
   { id: 'express', name: 'Express.js', category: 'backend', kind: k.fw, level: 'supported' },
   { id: 'rest', name: 'REST APIs', category: 'backend', kind: k.arch, level: 'core' },
-  { id: 'php', name: 'PHP', category: 'backend', kind: k.lang, level: 'supported' },
   { id: 'laravel', name: 'Laravel', category: 'backend', kind: k.fw, level: 'supported' },
-  { id: 'python', name: 'Python', category: 'backend', kind: k.lang, level: 'supported' },
 
   { id: 'supabase', name: 'Supabase', category: 'data', kind: k.baas, level: 'core' },
-  { id: 'postgresql', name: 'PostgreSQL', category: 'data', kind: k.db, level: 'core' },
   { id: 'mysql', name: 'MySQL', category: 'data', kind: k.db, level: 'supported' },
-  { id: 'mongodb', name: 'MongoDB', category: 'data', kind: k.db, level: 'supported' },
   { id: 'firebase', name: 'Firebase', category: 'data', kind: k.baas, level: 'supported' },
 
   { id: 'react-native', name: 'React Native', category: 'mobile', kind: k.fw, level: 'supported' },
-  { id: 'flutter', name: 'Flutter', category: 'mobile', kind: k.fw, level: 'supported' },
 
   { id: 'git', name: 'Git', category: 'tooling', kind: k.tool, level: 'core' },
   { id: 'github', name: 'GitHub', category: 'tooling', kind: k.platform, level: 'core' },
   { id: 'vercel', name: 'Vercel', category: 'tooling', kind: k.hosting, level: 'core' },
   { id: 'cloud', name: 'Cloud hosting', category: 'tooling', kind: k.hosting, level: 'supported' },
-  { id: 'cicd', name: 'CI/CD workflows', category: 'tooling', kind: k.practice, level: 'supported' },
 
   { id: 'figma', name: 'Figma', category: 'design', kind: k.tool, level: 'core' },
 ];
