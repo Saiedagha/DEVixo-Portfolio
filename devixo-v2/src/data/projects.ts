@@ -83,7 +83,7 @@ export const projects: Project[] = [
     subtitle: { en: 'Electronics & tech store with admin dashboard', ar: 'متجر إلكترونيات مع لوحة تحكم' },
     industry: { en: 'Electronics', ar: 'الإلكترونيات' },
     categories: ['ecommerce', 'custom'], services: ['ecommerce-development', 'custom-software-development'],
-    url: 'https://towntechshop.com', featured: true,
+    url: 'https://towntechshop.com', image: 'towntech.webp', featured: true,
     summary: {
       en: 'An Arabic electronics and tech e-commerce store with an admin dashboard, featuring detailed product specifications and a user-friendly interface for tech shoppers.',
       ar: 'متجر إلكتروني عربي للإلكترونيات والتقنية مع لوحة تحكم، يعرض مواصفات المنتجات بالتفصيل بواجهة سهلة لمحبي التقنية.',
@@ -96,7 +96,7 @@ export const projects: Project[] = [
     industry: { en: 'Retail', ar: 'التجزئة' },
     categories: ['ecommerce'], services: ['ecommerce-development'],
     platform: 'Shopify', technologies: ['shopify'],
-    url: 'https://topazwebsite.myshopify.com',
+    url: 'https://topazwebsite.myshopify.com', image: 'topaz.webp',
     summary: {
       en: 'A Shopify store with custom branding — product catalogs, promotional banners, secure payments, and a mobile-responsive design.',
       ar: 'متجر على شوبيفاي بهوية مخصصة — كتالوج منتجات وبانرات عروض ودفع آمن وتصميم متجاوب مع الموبايل.',
@@ -108,7 +108,7 @@ export const projects: Project[] = [
     subtitle: { en: 'Online shopping platform', ar: 'منصة تسوق أونلاين' },
     industry: { en: 'Retail', ar: 'التجزئة' },
     categories: ['ecommerce'], services: ['ecommerce-development'],
-    url: 'https://orin-store.com',
+    url: 'https://orin-store.com', image: 'orin.webp',
     summary: {
       en: 'A modern e-commerce platform with a wide range of products, organized categories, search, and a responsive design optimized for all devices.',
       ar: 'منصة تجارة إلكترونية حديثة بتشكيلة واسعة من المنتجات وتصنيفات منظمة وبحث وتصميم متجاوب مع كل الأجهزة.',
@@ -120,7 +120,7 @@ export const projects: Project[] = [
     subtitle: { en: 'Fashion & lifestyle store', ar: 'متجر أزياء وأسلوب حياة' },
     industry: { en: 'Fashion', ar: 'الأزياء' },
     categories: ['ecommerce'], services: ['ecommerce-development'],
-    url: 'https://nushea.shop',
+    url: 'https://nushea.shop', image: 'nushea.webp',
     summary: {
       en: 'A fashion and lifestyle e-commerce store with elegant product displays, seasonal collections, easy navigation, and a fast checkout.',
       ar: 'متجر أزياء وأسلوب حياة بعرض أنيق للمنتجات وتشكيلات موسمية وتنقل سهل ودفع سريع.',
@@ -132,7 +132,7 @@ export const projects: Project[] = [
     subtitle: { en: 'Fashion brand store', ar: 'متجر علامة أزياء' },
     industry: { en: 'Fashion', ar: 'الأزياء' },
     categories: ['ecommerce'], services: ['ecommerce-development'],
-    url: 'https://www.evafashioneg.com',
+    url: 'https://www.evafashioneg.com', image: 'eva.webp',
     summary: {
       en: 'A fashion brand e-commerce store showcasing the latest collections, new arrivals, and trending items through an easy-to-navigate interface.',
       ar: 'متجر إلكتروني لعلامة أزياء يعرض أحدث التشكيلات والوصول الجديد والأكثر رواجًا بواجهة سهلة التصفح.',
@@ -144,7 +144,7 @@ export const projects: Project[] = [
     subtitle: { en: 'Personal brand & services website', ar: 'موقع علامة شخصية وخدمات' },
     industry: { en: 'Professional services', ar: 'خدمات مهنية' },
     categories: ['websites'], services: ['website-development'],
-    url: 'https://amrgazzaz.com',
+    url: 'https://amrgazzaz.com', image: 'amrgazzaz.webp',
     summary: {
       en: 'A professional website presenting a personal brand and services — portfolio highlights, service offerings, and contact options in a clean, modern design.',
       ar: 'موقع احترافي يقدّم علامة شخصية وخدماتها — أبرز الأعمال والخدمات ووسائل التواصل بتصميم نظيف وعصري.',
@@ -181,7 +181,7 @@ export const projects: Project[] = [
     industry: { en: 'Culinary', ar: 'الطهي' },
     categories: ['websites'], services: ['website-development'],
     technologies: ['html', 'css', 'javascript'],
-    url: 'https://saiedagha.github.io/Western-Pastry-Chef-portfolio/',
+    url: 'https://saiedagha.github.io/Western-Pastry-Chef-portfolio/', image: 'pastry.webp',
     summary: {
       en: 'A portfolio website for a Western pastry chef presenting signature creations, biography, skills and contact details in an elegant layout.',
       ar: 'موقع أعمال لشيف حلويات غربية يعرض أبرز إبداعاته ونبذة عنه ومهاراته ووسائل التواصل بتخطيط أنيق.',
