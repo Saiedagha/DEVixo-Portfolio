@@ -184,7 +184,7 @@
       var lines = [];
       var labels = cfg.labels || {};
       fd.forEach(function (v, k) {
-        if (!v || k === 'consultation' || k === '_gotcha') return;
+        if (!v || k === 'consultation' || k.charAt(0) === '_' || k === 'page_language') return;
         var label = labels[k] || k;
         var shown = v;
         if (k === 'projectType' && cfg.types) shown = cfg.types[v] || v;

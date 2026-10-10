@@ -15,7 +15,7 @@ export const site = {
    * Optional form endpoint (Formspree, a Next.js route handler, Supabase edge function…).
    * When null, the contact form validates and hands the request over to WhatsApp.
    */
-  formEndpoint: null as string | null,
+  formEndpoint: 'https://formspree.io/f/mdeazkre' as string | null,
   /** Show dashed "add from CMS" blocks for missing case-study content. Set false for production. */
   showCmsPlaceholders: process.env.SHOW_CMS_PLACEHOLDERS !== 'false',
   tagline: {

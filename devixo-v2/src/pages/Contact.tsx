@@ -64,7 +64,9 @@ export function Contact({ lang }: { lang: Lang }) {
       <Section>
         <div className="contact-layout">
           <div className="form-card">
-            <form noValidate data-project-form data-config={JSON.stringify(cfg)} aria-labelledby="form-title">
+            <form noValidate data-project-form data-config={JSON.stringify(cfg)} aria-labelledby="form-title" {...(site.formEndpoint ? { action: site.formEndpoint, method: 'POST' } : {})}>
+              <input type="hidden" name="_subject" value={lang === 'ar' ? 'طلب مشروع جديد — موقع ديفيكسو' : 'New project request — DEVixo website'} />
+              <input type="hidden" name="page_language" value={lang === 'ar' ? 'Arabic' : 'English'} />
               <h2 id="form-title" className="h3" style={{ marginBottom: 8 }}>{tr(lang, 'Project request', 'طلب مشروع')}</h2>
               <p className="muted" style={{ marginBottom: 28 }}>{tr(lang, 'Fields marked * are required.', 'الحقول المميزة بعلامة * مطلوبة.')}</p>
               <div className="alert alert-error" role="alert" tabIndex={-1} hidden data-error-summary><Icon name="alert" size={18} /> {t(f.errSummary, lang)}</div>
