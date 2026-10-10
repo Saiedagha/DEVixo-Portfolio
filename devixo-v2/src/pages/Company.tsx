@@ -72,7 +72,10 @@ export function About({ lang }: { lang: Lang }) {
           <div>
             <Eyebrow num="03">{tr(lang, 'Who you’ll work with', 'مع من ستعمل')}</Eyebrow>
             <h2 id="founder-title" className="h2">{tr(lang, 'Meet the founder', 'تعرّف على المؤسس')}</h2>
-            <p className="lead" style={{ marginTop: 16 }}><strong>Saied Agha</strong> — {tr(lang, 'Founder & lead developer', 'المؤسس والمطوّر الرئيسي')}</p>
+            <div className="founder-id">
+              <img src={asset('img/founder-avatar.webp')} alt={tr(lang, 'Saied Agha', 'سعيد آغا')} width={88} height={88} loading="lazy" decoding="async" />
+              <p className="lead"><strong>Saied Agha</strong> — {tr(lang, 'Founder & lead developer', 'المؤسس والمطوّر الرئيسي')}</p>
+            </div>
             <p style={{ color: 'var(--ink-2)' }}>{tr(lang,
               'Saied started Devixo to give businesses direct access to the developer building their product. He works across front-end and full-stack development — from Shopify stores and Arabic-first storefronts to custom admin dashboards — and stays involved from the first call to post-launch support.',
               'أسس سعيد ديفيكسو ليمنح الأنشطة تواصلًا مباشرًا مع المطوّر الذي يبني منتجها. يعمل في تطوير الواجهات والتطوير المتكامل — من متاجر شوبيفاي والمتاجر العربية إلى لوحات التحكم المخصصة — ويظل مشاركًا من أول مكالمة حتى الدعم بعد الإطلاق.')}</p>
