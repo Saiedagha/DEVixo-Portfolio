@@ -1,0 +1,57 @@
+=== https://www.devixo-eg.site/sitemap.xml
+HTTP/2 200 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 0
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="sitemap.xml"
+content-type: application/xml; charset=utf-8
+date: Sat, 10 Oct 2026 01:19:51 GMT
+etag: "71c3a783d959903fcae7c41cae6eed1b"
+last-modified: Sat, 10 Oct 2026 01:19:51 GMT
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-cache: MISS
+x-vercel-id: sfo1::rdwjq-1791595191691-ac1ce5e494c0
+content-length: 10526
+
+=== https://www.devixo-eg.site/sitemap.xml/
+HTTP/2 308 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Sat, 10 Oct 2026 01:19:52 GMT
+location: /sitemap.xml
+refresh: 0;url=/sitemap.xml
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: sfo1::ptlmc-1791595192028-3a130bc37443
+
+=== https://www.devixo-eg.site/robots.txt
+HTTP/2 200 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 0
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="robots.txt"
+content-type: text/plain; charset=utf-8
+date: Sat, 10 Oct 2026 01:19:52 GMT
+etag: "b9b82d09a5f3562bc8d29ea1ab27b129"
+last-modified: Sat, 10 Oct 2026 01:19:52 GMT
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-cache: MISS
+x-vercel-id: sfo1::4pf58-1791595192228-67f33c10db82
+content-length: 80
+
+=== https://devixo-eg.site/sitemap.xml
+HTTP/2 308 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Sat, 10 Oct 2026 01:19:52 GMT
+location: https://www.devixo-eg.site/sitemap.xml
+refresh: 0;url=https://www.devixo-eg.site/sitemap.xml
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: sfo1::ptrrr-1791595192538-a1771dc46464
+
+live sitemap parses as XML, urls= 72 xhtml= False
