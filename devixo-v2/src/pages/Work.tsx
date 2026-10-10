@@ -8,6 +8,8 @@ import { getService } from '../data/services';
 import { site } from '../data/site';
 import { ProjectFilters } from './Home';
 import { Browser, Phone } from '../components/visuals';
+import { testimonialsFor } from '../data/testimonials';
+import { TestimonialCard } from '../components/ui';
 import { asset } from '../lib/i18n';
 
 const tr = (lang: Lang, en: string, ar: string) => (lang === 'ar' ? ar : en);
@@ -76,6 +78,7 @@ export function CaseStudy({ lang, slug }: { lang: Lang; slug: string }) {
     ) : null },
     { id: 'implementation', title: tr(lang, 'Key implementation details', 'أبرز تفاصيل التنفيذ'), body: p.implementation ? <p>{t(p.implementation, lang)}</p> : null },
     { id: 'results', title: tr(lang, 'Results', 'النتائج'), body: p.results ? <p>{t(p.results, lang)}</p> : null },
+    ...(testimonialsFor(p.slug).length ? [{ id: 'feedback', title: tr(lang, 'Client feedback', 'رأي العميل'), body: <div className="case-reviews">{testimonialsFor(p.slug).map((r) => <TestimonialCard key={r.name} lang={lang} item={r} />)}</div> }] : []),
   ];
   const visible = sections.filter((s) => s.body || ph);
   const related = projects.filter((x) => x.slug !== slug && x.categories.some((c) => p.categories.includes(c))).slice(0, 3);

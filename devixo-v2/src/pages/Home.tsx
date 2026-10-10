@@ -2,13 +2,14 @@ import React from 'react';
 import { Lang, t, href, ui } from '../lib/i18n';
 import { Layout } from '../components/Layout';
 import { Icon } from '../components/Icon';
-import { Section, SectionHead, Btn, ServiceCard, ProjectCard, FaqList, CtaBand, ProcessSteps, TestimonialSlot, Eyebrow } from '../components/ui';
+import { Section, SectionHead, Btn, ServiceCard, ProjectCard, FaqList, CtaBand, ProcessSteps, TestimonialCard, Eyebrow } from '../components/ui';
 import { HeroComposition } from '../components/visuals';
 import { services, getService, homeServiceCards, combinedCard } from '../data/services';
 import { projects, projectCategories, getProject } from '../data/projects';
 import { technologies, techCategories } from '../data/technologies';
 import { faqsById, homeFaqIds } from '../data/faqs';
 import { site } from '../data/site';
+import { testimonials, facebookReviewsUrl } from '../data/testimonials';
 
 const tr = (lang: Lang, en: string, ar: string) => (lang === 'ar' ? ar : en);
 
@@ -210,11 +211,11 @@ export function Home({ lang }: { lang: Lang }) {
           num="06"
           eyebrow={tr(lang, 'Client feedback', 'آراء العملاء')}
           title={tr(lang, 'What clients say', 'ماذا يقول عملاؤنا')}
-          lead={tr(lang, 'We only publish reviews that clients have approved. Verified reviews will appear here.', 'ننشر فقط الآراء التي يوافق عليها العملاء. ستظهر الآراء الموثّقة هنا.')}
+          lead={tr(lang, 'Recommendations left by clients on our Facebook page, shown as they wrote them.', 'توصيات كتبها عملاؤنا على صفحتنا في فيسبوك، كما كتبوها.')}
+          action={<a className="link-arrow" href={facebookReviewsUrl} target="_blank" rel="noopener">{tr(lang, 'See all on Facebook', 'شاهدها على فيسبوك')} <Icon name="external" size={16} /></a>}
         />
-        <div className="grid grid-2">
-          <TestimonialSlot lang={lang} />
-          <TestimonialSlot lang={lang} />
+        <div className="testimonial-grid">
+          {testimonials.map((r) => <TestimonialCard key={r.name} lang={lang} item={r} />)}
         </div>
       </Section>
 

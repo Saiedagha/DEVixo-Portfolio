@@ -6,6 +6,8 @@ import { Project, domainOf, projectCategories } from '../data/projects';
 import { Faq } from '../data/faqs';
 import { waLink, site } from '../data/site';
 import { getTech } from '../data/technologies';
+import { Testimonial } from '../data/testimonials';
+import { getProject } from '../data/projects';
 
 type C = { children?: React.ReactNode };
 
@@ -255,18 +257,35 @@ export function TechChips({ lang, ids }: { lang: Lang; ids: string[] }) {
   );
 }
 
-export function TestimonialSlot({ lang }: { lang: Lang }) {
+const initials = (n: string) => n.replace(/[^\p{L}\s]/gu, '').split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+
+export function TestimonialCard({ lang, item }: { lang: Lang; item: Testimonial }) {
+  const proj = item.project ? getProject(item.project) : undefined;
+  const date = new Date(item.date).toLocaleDateString(lang === 'ar' ? 'ar-EG' : 'en-GB', { month: 'long', year: 'numeric' });
+  const showEnOriginal = lang === 'en' && item.textEn;
+  const quote = showEnOriginal ? item.textEn! : item.text;
+  const quoteLang = showEnOriginal ? 'en' : item.textLang;
   return (
-    <figure className="testimonial is-empty">
-      <Icon name="quote" size={28} className="quote-icon" />
-      <blockquote>
-        <p>{lang === 'ar' ? 'مكان مخصص لرأي عميل موثّق — يُضاف بعد موافقة العميل على النشر.' : 'Reserved for a verified client review — added once the client approves publication.'}</p>
+    <figure className="testimonial reveal">
+      <div className="testimonial-top">
+        <Icon name="quote" size={26} className="quote-icon" />
+        <span className="review-source"><Icon name="facebook" size={14} /> {lang === 'ar' ? 'توصية على فيسبوك' : 'Facebook recommendation'}</span>
+      </div>
+      <blockquote lang={quoteLang} dir={quoteLang === 'ar' ? 'rtl' : 'ltr'}>
+        <p>{quote}</p>
       </blockquote>
+      {lang === 'en' && !showEnOriginal && item.translation && (
+        <p className="review-translation" lang="en"><span>{'Translated from Arabic'}</span>{item.translation}</p>
+      )}
       <figcaption>
-        <span className="avatar" aria-hidden="true"></span>
+        <span className="avatar avatar-initials" aria-hidden="true">{initials(item.name)}</span>
         <span>
-          <strong>{lang === 'ar' ? 'اسم العميل' : 'Client name'}</strong>
-          <small>{lang === 'ar' ? 'الشركة · المشروع المرتبط' : 'Company · Related project'}</small>
+          <strong>{item.name}</strong>
+          <small>
+            {item.company ? `${item.company} · ` : ''}
+            {proj ? <a href={href(lang, `work/${proj.slug}`)}>{proj.title}</a> : null}
+            {proj ? ' · ' : ''}{date}
+          </small>
         </span>
       </figcaption>
     </figure>

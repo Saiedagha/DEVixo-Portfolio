@@ -1014,3 +1014,15 @@ div.filter-empty[hidden] { display: none; }
 .case-shot-item figcaption { margin-top: 10px; font-size: .8125rem; font-weight: 600; color: var(--muted); }
 .case-shot-item .browser { box-shadow: var(--shadow); }
 @media (max-width: 760px) { .case-gallery { grid-template-columns: minmax(0, 1fr); } .case-shot-item.is-mobile { max-width: 240px; } }
+.testimonial-grid { columns: 3 320px; column-gap: var(--s2); }
+.testimonial-grid .testimonial { break-inside: avoid; margin-bottom: var(--s2); }
+.testimonial { gap: 16px; }
+.testimonial-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.review-source { display: inline-flex; align-items: center; gap: 6px; font-size: .75rem; font-weight: 700; color: var(--muted); padding: 4px 10px; border-radius: var(--pill); background: var(--surface); }
+.testimonial blockquote { font-size: 1.0625rem; line-height: 1.7; color: var(--ink); }
+.testimonial blockquote[lang='ar'] { font-family: var(--font-ar); line-height: 1.9; }
+.review-translation { margin: 0; font-size: .875rem; color: var(--muted); border-inline-start: 2px solid var(--accent); padding-inline-start: 12px; }
+.review-translation span { display: block; font-size: .6875rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 4px; }
+.avatar-initials { display: grid; place-items: center; border: 0; background: var(--ink); color: var(--accent); font-weight: 800; font-size: .875rem; font-family: var(--font); }
+.testimonial figcaption a { color: var(--accent-text); font-weight: 700; text-decoration: none; position: relative; z-index: 2; }
+.case-reviews .testimonial { background: var(--surface); border: 0; }
