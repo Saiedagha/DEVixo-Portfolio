@@ -261,32 +261,21 @@ const initials = (n: string) => n.replace(/[^\p{L}\s]/gu, '').split(/\s+/).filte
 
 export function TestimonialCard({ lang, item }: { lang: Lang; item: Testimonial }) {
   const proj = item.project ? getProject(item.project) : undefined;
-  const date = new Date(item.date).toLocaleDateString(lang === 'ar' ? 'ar-EG' : 'en-GB', { month: 'long', year: 'numeric' });
-  const showEnOriginal = lang === 'en' && item.textEn;
-  const quote = showEnOriginal ? item.textEn! : item.text;
-  const quoteLang = showEnOriginal ? 'en' : item.textLang;
   return (
-    <figure className="testimonial reveal">
-      <div className="testimonial-top">
-        <Icon name="quote" size={26} className="quote-icon" />
-        <span className="review-source"><Icon name="facebook" size={14} /> {lang === 'ar' ? 'توصية على فيسبوك' : 'Facebook recommendation'}</span>
-      </div>
-      <blockquote lang={quoteLang} dir={quoteLang === 'ar' ? 'rtl' : 'ltr'}>
-        <p>{quote}</p>
-      </blockquote>
-      {lang === 'en' && !showEnOriginal && item.translation && (
-        <p className="review-translation" lang="en"><span>{'Translated from Arabic'}</span>{item.translation}</p>
-      )}
+    <figure className="review-shot reveal">
+      <a href={asset(`img/reviews/${item.image.src}`)} target="_blank" rel="noopener" aria-label={lang === 'ar' ? `عرض توصية ${item.name} بالحجم الكامل` : `View ${item.name}’s recommendation full size`}>
+      <img
+        src={asset(`img/reviews/${item.image.src}`)}
+        width={item.image.w}
+        height={item.image.h}
+        loading="lazy"
+        decoding="async"
+        alt={`${lang === 'ar' ? 'توصية' : 'Recommendation from'} ${item.name}: ${item.textEn && lang === 'en' ? item.textEn : item.text}`}
+      />
+      </a>
       <figcaption>
-        <span className="avatar avatar-initials" aria-hidden="true">{initials(item.name)}</span>
-        <span>
-          <strong>{item.name}</strong>
-          <small>
-            {item.company ? `${item.company} · ` : ''}
-            {proj ? <a href={href(lang, `work/${proj.slug}`)}>{proj.title}</a> : null}
-            {proj ? ' · ' : ''}{date}
-          </small>
-        </span>
+        <span><Icon name="facebook" size={14} /> <strong>{item.name}</strong>{item.company ? ` · ${item.company}` : ''}</span>
+        {proj && <a href={href(lang, `work/${proj.slug}`)}>{proj.title} <Icon name="arrow" size={14} /></a>}
       </figcaption>
     </figure>
   );

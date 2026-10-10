@@ -1026,3 +1026,13 @@ div.filter-empty[hidden] { display: none; }
 .avatar-initials { display: grid; place-items: center; border: 0; background: var(--ink); color: var(--accent); font-weight: 800; font-size: .875rem; font-family: var(--font); }
 .testimonial figcaption a { color: var(--accent-text); font-weight: 700; text-decoration: none; position: relative; z-index: 2; }
 .case-reviews .testimonial { background: var(--surface); border: 0; }
+/* Facebook review screenshots */
+.testimonial-grid { columns: 2 420px; column-gap: var(--s2); }
+.review-shot { break-inside: avoid; margin: 0 0 var(--s2); padding: 10px; border-radius: var(--r-lg); background: #242526; box-shadow: var(--shadow); }
+.review-shot img { display: block; width: 100%; height: auto; border-radius: 10px; }
+.review-shot figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 6px 2px; font-size: .8125rem; color: #b0b3b8; }
+.review-shot figcaption span { display: inline-flex; align-items: center; gap: 6px; }
+.review-shot figcaption strong { color: #e4e6eb; }
+.review-shot figcaption a { display: inline-flex; align-items: center; gap: 4px; color: var(--accent); font-weight: 700; text-decoration: none; }
+.case-reviews { max-width: 640px; }
+.review-shot > a { display: block; cursor: zoom-in; border-radius: 10px; }
