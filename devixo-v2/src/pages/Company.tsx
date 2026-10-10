@@ -68,11 +68,7 @@ export function About({ lang }: { lang: Lang }) {
         </div>
       </Section>
       <Section labelledBy="founder-title">
-        <div className="founder">
-          <div className="portrait has-photo reveal">
-            <img src={asset('img/founder.webp')} alt={tr(lang, 'Saied Agha, founder of DEVixo', 'سعيد آغا، مؤسس ديفيكسو')} width={960} height={1200} loading="lazy" decoding="async" />
-            <span className="portrait-tag" dir="ltr">{'<founder />'}</span>
-          </div>
+        <div className="founder no-photo">
           <div>
             <Eyebrow num="03">{tr(lang, 'Who you’ll work with', 'مع من ستعمل')}</Eyebrow>
             <h2 id="founder-title" className="h2">{tr(lang, 'Meet the founder', 'تعرّف على المؤسس')}</h2>
