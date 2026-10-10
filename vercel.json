@@ -4,5 +4,12 @@
   "installCommand": "cd devixo-v2 && npm install",
   "buildCommand": "cd devixo-v2 && npm run build:prod",
   "outputDirectory": "devixo-v2/dist",
-  "trailingSlash": true
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/en/",
+      "permanent": false
+    }
+  ]
 }

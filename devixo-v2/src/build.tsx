@@ -31,7 +31,7 @@ for (const r of extraPages()) {
   count++;
 }
 
-// Root: send visitors to their language
+// Root: always open the English site
 fs.writeFileSync(
   path.join(OUT, 'index.html'),
   `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>DEVixo</title>
@@ -39,7 +39,7 @@ fs.writeFileSync(
 <link rel="canonical" href="https://www.devixo-eg.site/en/">
 <link rel="alternate" hreflang="en" href="https://www.devixo-eg.site/en/">
 <link rel="alternate" hreflang="ar" href="https://www.devixo-eg.site/ar/">
-<script>var l=(navigator.languages||[navigator.language||'en']).join(',').toLowerCase();location.replace('${BASE}/'+(/^ar|,ar/.test(l)?'ar':'en')+'/');</script>
+<script>location.replace('${BASE}/en/');</script>
 <meta http-equiv="refresh" content="0; url=${BASE}/en/"></head><body><a href="${BASE}/en/">English</a> · <a href="${BASE}/ar/">العربية</a></body></html>`,
 );
 
