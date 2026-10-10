@@ -67,9 +67,9 @@ export function CaseStudy({ lang, slug }: { lang: Lang; slug: string }) {
         {p.gallery.map((g) => (
           <figure key={g.src} className={`case-shot-item is-${g.kind}`}>
             {g.kind === 'mobile' ? (
-              <Phone><img src={asset(`img/projects/${g.src}`)} alt={`${p.title} — ${t(g.caption, lang)}`} loading="lazy" className="phone-shot" /></Phone>
+              <a href={asset(`img/projects/${g.src}`)} data-lightbox={`gallery-${p.slug}`} data-caption={`${p.title} — ${t(g.caption, lang)}`} className="lb-link"><Phone><img src={asset(`img/projects/${g.src}`)} alt={`${p.title} — ${t(g.caption, lang)}`} loading="lazy" className="phone-shot" /></Phone></a>
             ) : (
-              <Browser url={domainOf(p.url)}><img src={asset(`img/projects/${g.src}`)} alt={`${p.title} — ${t(g.caption, lang)}`} loading="lazy" /></Browser>
+              <a href={asset(`img/projects/${g.src}`)} data-lightbox={`gallery-${p.slug}`} data-caption={`${p.title} — ${t(g.caption, lang)}`} className="lb-link"><Browser url={domainOf(p.url)}><img src={asset(`img/projects/${g.src}`)} alt={`${p.title} — ${t(g.caption, lang)}`} loading="lazy" /></Browser></a>
             )}
             <figcaption>{t(g.caption, lang)}</figcaption>
           </figure>
@@ -117,7 +117,7 @@ export function CaseStudy({ lang, slug }: { lang: Lang; slug: string }) {
         </div>
       </section>
       <div className="container case-shot-wrap">
-        <div className="case-shot"><ProjectShot p={p} lang={lang} eager /></div>
+        <div className="case-shot">{p.image ? <a href={asset(`img/projects/${p.image}`)} data-lightbox={`gallery-${p.slug}`} data-caption={`${p.title} — ${lang === 'ar' ? 'الصفحة الرئيسية' : 'Homepage'}`} className="lb-link"><ProjectShot p={p} lang={lang} eager /></a> : <ProjectShot p={p} lang={lang} eager />}</div>
       </div>
       <Section labelledBy="cs-title">
         <h2 id="cs-title" className="sr-only">{tr(lang, 'Case study', 'دراسة الحالة')}</h2>

@@ -263,7 +263,7 @@ export function TestimonialCard({ lang, item }: { lang: Lang; item: Testimonial 
   const proj = item.project ? getProject(item.project) : undefined;
   return (
     <figure className="review-shot reveal">
-      <a href={asset(`img/reviews/${item.image.src}`)} target="_blank" rel="noopener" aria-label={lang === 'ar' ? `عرض توصية ${item.name} بالحجم الكامل` : `View ${item.name}’s recommendation full size`}>
+      <a href={asset(`img/reviews/${item.image.src}`)} data-lightbox="reviews" data-caption={item.name + (item.company ? ` · ${item.company}` : '')} aria-label={lang === 'ar' ? `عرض توصية ${item.name} بالحجم الكامل` : `View ${item.name}’s recommendation full size`}>
       <img
         src={asset(`img/reviews/${item.image.src}`)}
         width={item.image.w}

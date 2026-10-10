@@ -344,3 +344,107 @@
     Array.prototype.forEach.call(track.children, function (c) { new MutationObserver(build).observe(c, { attributes: true, attributeFilter: ['hidden'] }); });
   });
 })();
+
+/* Lightbox: in-page image viewer for [data-lightbox] links (falls back to opening the image) */
+(function () {
+  'use strict';
+  var links = document.querySelectorAll('a[data-lightbox]');
+  if (!links.length) return;
+  var isAr = document.documentElement.lang === 'ar';
+  var rtl = document.documentElement.dir === 'rtl';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var T = isAr ? { close: 'إغلاق', prev: 'السابق', next: 'التالي', of: 'من', label: 'عارض الصور' } : { close: 'Close', prev: 'Previous', next: 'Next', of: 'of', label: 'Image viewer' };
+  var svg = function (d) { return '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + d + '</svg>'; };
+
+  var box = document.createElement('div');
+  box.className = 'lb';
+  box.hidden = true;
+  box.setAttribute('role', 'dialog');
+  box.setAttribute('aria-modal', 'true');
+  box.setAttribute('aria-label', T.label);
+  box.innerHTML =
+    '<div class="lb-backdrop" data-lb-close></div>' +
+    '<div class="lb-top"><span class="lb-count" aria-live="polite"></span>' +
+    '<button type="button" class="lb-btn lb-close" data-lb-close aria-label="' + T.close + '">' + svg('<path d="M18 6 6 18M6 6l12 12"/>') + '</button></div>' +
+    '<button type="button" class="lb-btn lb-nav lb-prev" aria-label="' + T.prev + '">' + svg('<path d="m15 18-6-6 6-6"/>') + '</button>' +
+    '<figure class="lb-stage"><img class="lb-img" alt=""><figcaption class="lb-cap"></figcaption></figure>' +
+    '<button type="button" class="lb-btn lb-nav lb-next" aria-label="' + T.next + '">' + svg('<path d="m9 18 6-6-6-6"/>') + '</button>';
+  document.body.appendChild(box);
+  var img = box.querySelector('.lb-img'), cap = box.querySelector('.lb-cap'), count = box.querySelector('.lb-count');
+  var prevBtn = box.querySelector('.lb-prev'), nextBtn = box.querySelector('.lb-next'), closeBtn = box.querySelector('.lb-close');
+  var group = [], idx = 0, opener = null, scrollY = 0;
+
+  function show(i, dir) {
+    idx = (i + group.length) % group.length;
+    var a = group[idx];
+    var thumb = a.querySelector('img');
+    img.classList.remove('is-in', 'from-l', 'from-r');
+    if (dir) img.classList.add(dir > 0 ? 'from-r' : 'from-l');
+    img.src = a.getAttribute('href');
+    img.alt = thumb ? thumb.alt : '';
+    cap.textContent = a.getAttribute('data-caption') || '';
+    count.textContent = group.length > 1 ? (idx + 1) + ' ' + T.of + ' ' + group.length : '';
+    prevBtn.hidden = nextBtn.hidden = group.length < 2;
+    var done = function () { requestAnimationFrame(function () { img.classList.add('is-in'); }); };
+    if (img.complete) done(); else img.onload = done;
+    [idx - 1, idx + 1].forEach(function (j) { var n = group[(j + group.length) % group.length]; if (n) { var p = new Image(); p.src = n.getAttribute('href'); } });
+  }
+  function open(a) {
+    var name = a.getAttribute('data-lightbox');
+    group = Array.prototype.filter.call(document.querySelectorAll('a[data-lightbox="' + name + '"]'), function (x) { return x.offsetParent !== null || x === a; });
+    opener = a;
+    scrollY = window.scrollY;
+    document.documentElement.classList.add('lb-open');
+    box.hidden = false;
+    requestAnimationFrame(function () { box.classList.add('is-open'); });
+    show(group.indexOf(a));
+    closeBtn.focus({ preventScroll: true });
+  }
+  function close() {
+    box.classList.remove('is-open');
+    document.documentElement.classList.remove('lb-open');
+    setTimeout(function () { box.hidden = true; img.removeAttribute('src'); }, reduce ? 0 : 220);
+    if (opener) opener.focus({ preventScroll: true });
+    window.scrollTo(0, scrollY);
+  }
+  var step = function (d) { show(idx + d, d); };
+
+  links.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+      e.preventDefault();
+      open(a);
+    });
+  });
+  box.addEventListener('click', function (e) { if (e.target.closest('[data-lb-close]')) close(); });
+  box.querySelector('.lb-stage').addEventListener('click', function (e) { if (e.target === e.currentTarget) close(); });
+  prevBtn.addEventListener('click', function () { step(-1); });
+  nextBtn.addEventListener('click', function () { step(1); });
+  document.addEventListener('keydown', function (e) {
+    if (box.hidden) return;
+    if (e.key === 'Escape') { e.preventDefault(); close(); }
+    else if (e.key === 'ArrowRight') step(rtl ? -1 : 1);
+    else if (e.key === 'ArrowLeft') step(rtl ? 1 : -1);
+    else if (e.key === 'Tab') {
+      var f = [closeBtn, prevBtn, nextBtn].filter(function (b) { return !b.hidden; });
+      var i = f.indexOf(document.activeElement);
+      e.preventDefault();
+      f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+    }
+  });
+  // Touch: swipe sideways to change image, swipe down to close
+  var sx = 0, sy = 0, tracking = false;
+  box.addEventListener('touchstart', function (e) { if (e.touches.length !== 1) return; tracking = true; sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+  box.addEventListener('touchmove', function (e) {
+    if (!tracking) return;
+    var dy = e.touches[0].clientY - sy;
+    if (dy > 0 && Math.abs(dy) > Math.abs(e.touches[0].clientX - sx)) { img.style.transform = 'translateY(' + dy + 'px)'; img.style.opacity = String(Math.max(.3, 1 - dy / 400)); }
+  }, { passive: true });
+  box.addEventListener('touchend', function (e) {
+    if (!tracking) return; tracking = false;
+    var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+    img.style.transform = ''; img.style.opacity = '';
+    if (dy > 90 && Math.abs(dy) > Math.abs(dx)) close();
+    else if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) && group.length > 1) step((dx < 0) !== rtl ? 1 : -1);
+  });
+})();

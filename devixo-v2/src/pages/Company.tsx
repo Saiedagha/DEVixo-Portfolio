@@ -368,7 +368,7 @@ export function Legal({ lang, kind }: { lang: Lang; kind: 'privacy' | 'terms' })
 /* -------------------------------- 404 ------------------------------ */
 export function NotFound({ lang }: { lang: Lang }) {
   return (
-    <Layout meta={{ lang, path: '', title: tr(lang, 'Page not found', 'الصفحة غير موجودة'), description: '', noindex: true }}>
+    <Layout meta={{ lang, path: '', title: tr(lang, 'Page not found', 'الصفحة غير موجودة'), description: tr(lang, 'The page you are looking for does not exist.', 'الصفحة التي تبحث عنها غير موجودة.'), noindex: true }}>
       <section className="notfound">
         <div className="container">
           <p className="notfound-code" aria-hidden="true">404</p>

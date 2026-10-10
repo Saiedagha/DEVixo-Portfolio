@@ -586,8 +586,8 @@ html[lang='ar'] .bullet-list .icon { margin-top: 4px; }
 .system-body { padding: 0 20px 20px; display: grid; gap: 16px; }
 .system-body > p { margin: 0; color: var(--ink-2); }
 .system-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; padding: 16px; border-radius: var(--r); background: var(--surface); }
-.system-cols h4 { font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-html[lang='ar'] .system-cols h4 { letter-spacing: 0; font-size: .8125rem; }
+.system-cols h4, .system-cols .sys-h { font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+html[lang='ar'] .system-cols h4, .system-cols .sys-h { letter-spacing: 0; font-size: .8125rem; }
 .system-cols ul { list-style: none; display: grid; gap: 4px; font-size: .875rem; font-weight: 600; }
 .system-cols li::before { content: '—'; color: var(--accent-text); margin-inline-end: 6px; }
 .system-body .link-arrow { justify-self: start; }
@@ -1068,3 +1068,41 @@ div.filter-empty[hidden] { display: none; }
   .tone-dark .m-dots button { background: var(--dark-line); }
 }
 @media (min-width: 761px) { .m-dots { display: none; } }
+
+/* Lightbox */
+html.lb-open, html.lb-open body { overflow: hidden; }
+.lb { position: fixed; inset: 0; z-index: 200; display: grid; grid-template-columns: 72px minmax(0, 1fr) 72px; grid-template-rows: 64px minmax(0, 1fr); align-items: center; opacity: 0; transition: opacity .22s var(--ease); }
+.lb.is-open { opacity: 1; }
+.lb-backdrop { position: absolute; inset: 0; background: rgba(12, 12, 11, .92); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.lb-top { position: relative; grid-column: 1 / -1; grid-row: 1; display: flex; justify-content: space-between; align-items: center; padding: 0 16px; color: #fff; }
+.lb-count { font-family: var(--mono); font-size: .8125rem; color: #cfcfca; padding-inline-start: 8px; }
+.lb-btn { position: relative; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .18); background: rgba(255, 255, 255, .08); color: #fff; transition: background .15s, transform .15s; }
+.lb-btn:hover { background: rgba(255, 255, 255, .18); }
+.lb-btn:active { transform: scale(.94); }
+.lb-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.lb-close { background: #fff; color: var(--ink); border-color: #fff; }
+.lb-close:hover { background: var(--accent); border-color: var(--accent); }
+.lb-nav { grid-row: 2; justify-self: center; }
+.lb-prev { grid-column: 1; } .lb-next { grid-column: 3; }
+[dir='rtl'] .lb-nav svg { transform: scaleX(-1); }
+.lb-stage { position: relative; grid-column: 2; grid-row: 2; margin: 0; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 8px 0 28px; min-height: 0; }
+.lb-img { max-width: 100%; max-height: calc(100% - 40px); width: auto; height: auto; object-fit: contain; border-radius: 12px; box-shadow: 0 30px 80px -20px rgba(0, 0, 0, .7); opacity: 0; transform: scale(.96); transition: opacity .28s var(--ease), transform .28s var(--ease); background: #1d1d1b; }
+.lb-img.from-r { transform: translateX(40px); } .lb-img.from-l { transform: translateX(-40px); }
+.lb-img.is-in { opacity: 1; transform: none; }
+.lb-cap { color: #e9e8e3; font-size: .875rem; font-weight: 600; text-align: center; }
+.lb-link { display: block; cursor: zoom-in; border-radius: 14px; }
+.lb-link:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+@media (max-width: 760px) {
+  .lb { grid-template-columns: 0 minmax(0, 1fr) 0; grid-template-rows: 60px minmax(0, 1fr) 76px; }
+  .lb-stage { padding: 0 12px; }
+  .lb-nav { grid-row: 3; grid-column: 1 / -1 !important; position: absolute; bottom: 14px; }
+  .lb-prev { inset-inline-start: calc(50% - 60px); } .lb-next { inset-inline-start: calc(50% + 12px); }
+}
+@media (prefers-reduced-motion: reduce) { .lb, .lb-img { transition: none; } }
+
+/* Larger tap targets */
+.logo { padding-block: 10px; }
+.breadcrumbs a { display: inline-block; padding-block: 8px; }
+.footer-legal a, .footer-nav a { padding-block: 10px; }
+.link-arrow { padding-block: 8px; }
+@media (min-width: 1061px) { .offer-grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }

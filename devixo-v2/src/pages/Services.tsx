@@ -92,7 +92,7 @@ function Offerings({ lang, s }: { lang: Lang; s: Service }) {
   return (
     <Section labelledBy="offer-title">
       <SectionHead id="offer-title" num="01" eyebrow={tr(lang, 'What we deliver', 'ما نقدمه')} title={tr(lang, 'What’s included', 'ماذا يشمل')} />
-      <div className="offer-grid">
+      <div className={`offer-grid ${s.offerings.length % 3 !== 0 && s.offerings.length % 4 === 0 ? 'cols-4' : ''}`}>
         {s.offerings.map((o, i) => (
           <div key={i} className="offer reveal">
             <h3 className="h4"><Icon name="check" size={18} /> {t(o.title, lang)}</h3>
@@ -253,9 +253,9 @@ function BusinessExtra({ lang }: { lang: Lang }) {
                 </div>
               </div>
               <div className="system-cols">
-                <div><h4>{t(ui.labels.modules, lang)}</h4><ul>{sy.modules.map((m, i) => <li key={i}>{t(m, lang)}</li>)}</ul></div>
-                <div><h4>{t(ui.labels.roles, lang)}</h4><ul>{sy.roles.map((m, i) => <li key={i}>{t(m, lang)}</li>)}</ul></div>
-                <div><h4>{t(ui.labels.integrations, lang)}</h4><ul>{sy.integrations.map((m, i) => <li key={i}>{t(m, lang)}</li>)}</ul></div>
+                <div><h3 className="sys-h">{t(ui.labels.modules, lang)}</h3><ul>{sy.modules.map((m, i) => <li key={i}>{t(m, lang)}</li>)}</ul></div>
+                <div><h3 className="sys-h">{t(ui.labels.roles, lang)}</h3><ul>{sy.roles.map((m, i) => <li key={i}>{t(m, lang)}</li>)}</ul></div>
+                <div><h3 className="sys-h">{t(ui.labels.integrations, lang)}</h3><ul>{sy.integrations.map((m, i) => <li key={i}>{t(m, lang)}</li>)}</ul></div>
               </div>
               <a className="link-arrow" href={`${href(lang, 'contact')}?type=business`}>{t(ui.cta.inquire, lang)} <Icon name="arrow" size={16} /></a>
             </div>

@@ -196,7 +196,7 @@ export function Contact({ lang }: { lang: Lang }) {
 
 export function ThankYou({ lang }: { lang: Lang }) {
   return (
-    <Layout meta={{ lang, path: 'contact/thank-you', title: tr(lang, 'Request received', 'تم استلام طلبك'), description: '', noindex: true }}>
+    <Layout meta={{ lang, path: 'contact/thank-you', title: tr(lang, 'Request received', 'تم استلام طلبك'), description: tr(lang, 'Your project request was received.', 'تم استلام طلب مشروعك.'), noindex: true }}>
       <section className="notfound">
         <div className="container">
           <span className="success-icon" style={{ display: 'inline-grid', placeItems: 'center', width: 80, height: 80, borderRadius: '50%', background: 'var(--ok-soft)', color: 'var(--ok)', marginBottom: 24 }}><Icon name="circleCheck" size={40} /></span>
