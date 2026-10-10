@@ -226,7 +226,10 @@ export function Layout({ meta, children }: { meta: PageMeta; children: React.Rea
         {site.verification.bing && <meta name="msvalidate.01" content={site.verification.bing} />}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@graph': [orgRef, ...(meta.jsonLd || [])] }) }} />
         <meta name="theme-color" content="#FFFFFF" />
-        <link rel="icon" href={asset('img/brand/icon.png')} />
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
