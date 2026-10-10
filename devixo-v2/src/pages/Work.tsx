@@ -7,6 +7,8 @@ import { projects, getProject, domainOf, Project } from '../data/projects';
 import { getService } from '../data/services';
 import { site } from '../data/site';
 import { ProjectFilters } from './Home';
+import { Browser, Phone } from '../components/visuals';
+import { asset } from '../lib/i18n';
 
 const tr = (lang: Lang, en: string, ar: string) => (lang === 'ar' ? ar : en);
 
@@ -58,7 +60,20 @@ export function CaseStudy({ lang, slug }: { lang: Lang; slug: string }) {
     { id: 'solution', title: tr(lang, 'Proposed solution', 'الحل المقترح'), body: p.solution ? <p>{t(p.solution, lang)}</p> : null },
     { id: 'scope', title: tr(lang, 'Scope of work', 'نطاق العمل'), body: p.scope ? <ul className="chips">{p.scope.map((s, i) => <li key={i} className="chip chip-strong">{t(s, lang)}</li>)}</ul> : null },
     { id: 'tech', title: tr(lang, 'Technologies & platform', 'التقنيات والمنصة'), body: p.platform || p.technologies.length ? <TechChips lang={lang} ids={p.technologies} /> : null },
-    { id: 'screens', title: tr(lang, 'Selected screens', 'لقطات مختارة'), body: p.gallery.length ? <div className="grid grid-2">{p.gallery.map((g) => <img key={g} src={g} alt="" />)}</div> : null },
+    { id: 'screens', title: tr(lang, 'Selected screens', 'لقطات مختارة'), body: p.gallery.length ? (
+      <div className="case-gallery">
+        {p.gallery.map((g) => (
+          <figure key={g.src} className={`case-shot-item is-${g.kind}`}>
+            {g.kind === 'mobile' ? (
+              <Phone><img src={asset(`img/projects/${g.src}`)} alt={`${p.title} — ${t(g.caption, lang)}`} loading="lazy" className="phone-shot" /></Phone>
+            ) : (
+              <Browser url={domainOf(p.url)}><img src={asset(`img/projects/${g.src}`)} alt={`${p.title} — ${t(g.caption, lang)}`} loading="lazy" /></Browser>
+            )}
+            <figcaption>{t(g.caption, lang)}</figcaption>
+          </figure>
+        ))}
+      </div>
+    ) : null },
     { id: 'implementation', title: tr(lang, 'Key implementation details', 'أبرز تفاصيل التنفيذ'), body: p.implementation ? <p>{t(p.implementation, lang)}</p> : null },
     { id: 'results', title: tr(lang, 'Results', 'النتائج'), body: p.results ? <p>{t(p.results, lang)}</p> : null },
   ];
@@ -91,9 +106,9 @@ export function CaseStudy({ lang, slug }: { lang: Lang; slug: string }) {
             </div>
           </div>
           <dl className="case-meta">
-            <div><dt>{t(ui.labels.industry, lang)}</dt><dd>{t(p.industry, lang)}</dd></div>
+            <div><dt>{t(ui.labels.industry, lang)}</dt><dd>{t(p.industry, lang)}{p.market ? ` · ${t(p.market, lang)}` : ''}</dd></div>
             <div><dt>{t(ui.labels.services, lang)}</dt><dd>{p.services.map((s) => t(getService(s).title, lang)).join(' · ')}</dd></div>
-            <div><dt>{t(ui.labels.platform, lang)}</dt><dd>{p.platform || (ph ? <span className="muted">—</span> : '—')}</dd></div>
+            <div><dt>{t(ui.labels.platform, lang)}</dt><dd>{p.platform || (p.technologies.includes('react') ? tr(lang, 'Custom build (React)', 'برمجة خاصة (React)') : p.technologies.includes('html') ? 'HTML · CSS · JavaScript' : '—')}</dd></div>
             <div><dt>{t(ui.labels.liveUrl, lang)}</dt><dd><a href={p.url} target="_blank" rel="noopener" dir="ltr">{domainOf(p.url)}</a></dd></div>
           </dl>
         </div>

@@ -1008,3 +1008,9 @@ div.filter-empty[hidden] { display: none; }
 @media (max-width: 760px) { .site-footer .footer-bottom { padding-bottom: 88px; } }
 .icon-brand { display: inline-block; flex: none; background: currentColor; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center; -webkit-mask-size: contain; mask-size: contain; }
 .phone-view > img.phone-shot { object-position: top center; }
+.case-gallery { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 24px; align-items: start; }
+.case-gallery:has(> :only-child) { grid-template-columns: 240px; }
+.case-shot-item { margin: 0; }
+.case-shot-item figcaption { margin-top: 10px; font-size: .8125rem; font-weight: 600; color: var(--muted); }
+.case-shot-item .browser { box-shadow: var(--shadow); }
+@media (max-width: 760px) { .case-gallery { grid-template-columns: minmax(0, 1fr); } .case-shot-item.is-mobile { max-width: 240px; } }

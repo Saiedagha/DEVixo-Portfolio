@@ -39,7 +39,7 @@ export function HeroComposition({ lang }: { lang: Lang }) {
         <img src={asset('img/projects/towntech.webp')} alt="" width={1200} height={750} fetchPriority="high" />
       </Browser>
       <Phone className="hv-phone">
-        <img src={asset('img/projects/eva-mobile.webp')} alt="" className="phone-shot" />
+        <img src={asset('img/projects/eva-m.webp')} alt="" className="phone-shot" />
       </Phone>
       <Browser url="nushea.shop" className="hv-small">
         <img src={asset('img/projects/nushea.webp')} alt="" loading="lazy" />
@@ -116,8 +116,8 @@ export function DashboardMock({ lang, variant = 'analytics' }: { lang: Lang; var
 export function StoreMock({ lang }: { lang: Lang }) {
   return (
     <figure className="mock-figure store-visual">
-      <Browser url="velcot.net" className="sv-main">
-        <img src={asset('img/projects/velcot.webp')} alt={tr(lang, 'Velcot store homepage', 'الصفحة الرئيسية لمتجر Velcot')} />
+      <Browser url="zegimart.ca" className="sv-main">
+        <img src={asset('img/projects/zegimart-inner.webp')} alt={tr(lang, 'ZegiMart product page', 'صفحة منتج في متجر ZegiMart')} />
       </Browser>
       <Phone className="sv-phone">
         <div className="pm-store">
@@ -131,7 +131,7 @@ export function StoreMock({ lang }: { lang: Lang }) {
           <span className="pm-cta">{tr(lang, 'Add to cart', 'أضف للسلة')}</span>
         </div>
       </Phone>
-      <figcaption className="visual-caption"><Icon name="eye" size={14} /> {tr(lang, 'Velcot screenshot · mobile view illustrative', 'لقطة من Velcot · عرض الموبايل توضيحي')}</figcaption>
+      <figcaption className="visual-caption"><Icon name="eye" size={14} /> {tr(lang, 'ZegiMart screenshot · mobile view illustrative', 'لقطة من ZegiMart · عرض الموبايل توضيحي')}</figcaption>
     </figure>
   );
 }
@@ -190,7 +190,7 @@ export function DesignMock({ lang }: { lang: Lang }) {
       <div className="dv-step">
         <span className="dv-label mono">02 · {tr(lang, 'Interface', 'الواجهة')}</span>
         <div className="dv-card final">
-          <img src={asset('img/projects/heyba.webp')} alt="" />
+          <img src={asset('img/projects/glowbyrose.webp')} alt="" />
           <span className="final-title">{tr(lang, 'Product page', 'صفحة المنتج')}</span>
           <span className="sk w60"></span>
           <span className="final-btn">{tr(lang, 'Add to cart', 'أضف للسلة')}</span>

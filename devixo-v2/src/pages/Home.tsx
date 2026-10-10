@@ -24,7 +24,7 @@ export function ProjectFilters({ lang, target }: { lang: Lang; target: string })
 }
 
 export function Home({ lang }: { lang: Lang }) {
-  const featured = ['velcot', 'hayba', 'towntech', 'topaz', 'el-hamd-curtains'].map((s) => getProject(s)!);
+  const featured = ['zegimart', 'blue-tech-kuwait', 'towntech', 'glow-by-rose', 'eva-fashion'].map((s) => getProject(s)!);
   const why = [
     [tr(lang, 'Business first', 'العمل أولًا'), tr(lang, 'We start from what the project must achieve for your business — sales, leads, time saved — and choose the technology after.', 'نبدأ مما يجب أن يحققه المشروع لنشاطك — مبيعات أو عملاء أو وقت موفَّر — ثم نختار التقنية.')],
     [tr(lang, 'Custom when it’s needed', 'برمجة خاصة عند الحاجة'), tr(lang, 'When off-the-shelf tools force workarounds, we build exactly what your workflow needs.', 'عندما تجبرك الأدوات الجاهزة على التحايل، نبني ما يحتاجه سير عملك بالضبط.')],

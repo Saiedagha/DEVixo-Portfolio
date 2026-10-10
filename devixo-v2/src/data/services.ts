@@ -49,7 +49,7 @@ export const services: Service[] = [
       { title: { en: 'Conversion-focused UX', ar: 'تحسين تجربة الشراء' }, text: { en: 'Reviewing product pages, navigation, and checkout friction, then fixing what matters.', ar: 'مراجعة صفحات المنتجات والتنقل وعقبات الدفع، ثم معالجة الأهم.' } },
       { title: { en: 'Maintenance & enhancements', ar: 'الصيانة والتطوير المستمر' }, text: { en: 'Ongoing changes, new sections, and fixes after launch.', ar: 'تعديلات مستمرة وأقسام جديدة وإصلاحات بعد الإطلاق.' } },
     ],
-    relatedProjects: ['velcot', 'hayba', 'topaz', 'towntech'],
+    relatedProjects: ['zegimart', 'blue-tech-kuwait', 'glow-by-rose', 'towntech'],
     relatedTech: ['shopify', 'liquid', 'woocommerce'],
     faqIds: ['platform-vs-custom', 'shopify', 'integrations'],
     seo: {
@@ -83,7 +83,7 @@ export const services: Service[] = [
       { title: { en: 'SEO foundations', ar: 'أساسيات تحسين الظهور' }, text: { en: 'Clean structure, metadata, and page speed that search engines can read.', ar: 'هيكلة نظيفة وبيانات وصفية وسرعة تحميل تفهمها محركات البحث.' } },
       { title: { en: 'Redesign & migration', ar: 'إعادة التصميم والنقل' }, text: { en: 'Rebuilding an outdated site while keeping the content and links that still work.', ar: 'إعادة بناء موقع قديم مع الحفاظ على المحتوى والروابط التي ما زالت تعمل.' } },
     ],
-    relatedProjects: ['amr-gazzaz', 'el-hamd-curtains', 'restaurant-website', 'pastry-chef-portfolio'],
+    relatedProjects: ['el-hamd-curtains', 'restaurant-website', 'pastry-chef-portfolio'],
     relatedTech: ['html', 'css', 'javascript', 'react', 'nextjs'],
     faqIds: ['project-types', 'timelines', 'hosting'],
     seo: {
@@ -216,7 +216,7 @@ export const services: Service[] = [
       { title: { en: 'Responsive design', ar: 'تصميم متجاوب' }, text: { en: 'Dedicated layouts for mobile, tablet, and desktop.', ar: 'تخطيطات مخصصة للموبايل والتابلت والكمبيوتر.' } },
       { title: { en: 'Developer handoff', ar: 'التسليم للمطورين' }, text: { en: 'Components, tokens, and specs organized for implementation.', ar: 'مكونات ومتغيرات ومواصفات منظمة للتنفيذ.' } },
     ],
-    relatedProjects: ['hayba', 'velcot'],
+    relatedProjects: ['zegimart', 'glow-by-rose', 'nushea'],
     relatedTech: ['figma'],
     faqIds: ['project-types', 'ownership'],
     seo: {
@@ -250,7 +250,7 @@ export const services: Service[] = [
       { title: { en: 'E-commerce integrations', ar: 'تكاملات المتاجر' }, text: { en: 'Syncing products, stock, and orders with other systems.', ar: 'مزامنة المنتجات والمخزون والطلبات مع أنظمة أخرى.' } },
       { title: { en: 'Workflow automation', ar: 'أتمتة سير العمل' }, text: { en: 'Notifications, approvals, and scheduled tasks that run on their own.', ar: 'تنبيهات وموافقات ومهام مجدولة تعمل تلقائيًا.' } },
     ],
-    relatedProjects: ['towntech'],
+    relatedProjects: ['towntech', 'blue-tech-kuwait'],
     relatedTech: ['nodejs', 'rest', 'supabase'],
     faqIds: ['integrations', 'hosting'],
     seo: {
@@ -284,7 +284,7 @@ export const services: Service[] = [
       { title: { en: 'Backups', ar: 'النسخ الاحتياطي' }, text: { en: 'Backup routines where the platform and hosting allow it.', ar: 'روتين نسخ احتياطي حيث تسمح المنصة والاستضافة بذلك.' } },
       { title: { en: 'Content & feature changes', ar: 'تعديلات المحتوى والمميزات' }, text: { en: 'New pages, sections, and features as your business grows.', ar: 'صفحات وأقسام ومميزات جديدة مع نمو نشاطك.' } },
     ],
-    relatedProjects: ['velcot', 'towntech'],
+    relatedProjects: ['velcot', 'towntech', 'eva-fashion'],
     relatedTech: ['github', 'vercel'],
     faqIds: ['maintenance', 'hosting'],
     seo: {
