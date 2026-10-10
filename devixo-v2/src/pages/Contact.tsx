@@ -53,7 +53,7 @@ export function Contact({ lang }: { lang: Lang }) {
     },
   };
   return (
-    <Layout meta={{ lang, path: 'contact', title: tr(lang, 'Start a Project', 'ابدأ مشروعك'), description: tr(lang, 'Tell Devixo about your project — store, website, custom software or business system — and get a clear next step.', 'أخبر ديفيكسو عن مشروعك — متجر أو موقع أو برنامج مخصص أو نظام أعمال — واحصل على خطوة تالية واضحة.') }}>
+    <Layout meta={{ lang, path: 'contact', title: { en: 'Start a Project — Get a Website or Online Store Quote', ar: 'ابدأ مشروعك — اطلب تصميم موقع أو متجر إلكتروني' }, description: tr(lang, 'Tell Devixo about your project — store, website, custom software or business system — and get a clear next step.', 'أخبر ديفيكسو عن مشروعك — متجر أو موقع أو برنامج مخصص أو نظام أعمال — واحصل على خطوة تالية واضحة.') }}>
       <PageHero
         lang={lang}
         crumbs={[{ label: t(ui.nav.contact, lang) }]}

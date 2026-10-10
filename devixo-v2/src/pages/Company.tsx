@@ -23,7 +23,7 @@ export function About({ lang }: { lang: Lang }) {
     [tr(lang, 'Here after launch', 'موجودون بعد الإطلاق'), tr(lang, 'Agreed support after delivery, and ongoing improvements when you need them.', 'دعم متفق عليه بعد التسليم، وتحسينات مستمرة عند الحاجة.')],
   ];
   return (
-    <Layout meta={{ lang, path: 'about', title: ui.nav.about, description: tr(lang, 'Devixo is a software development company led hands-on by its developer, building websites, stores and custom systems.', 'ديفيكسو شركة تطوير برمجيات يقودها مطوّرها بشكل مباشر، وتبني المواقع والمتاجر والأنظمة المخصصة.') }}>
+    <Layout meta={{ lang, path: 'about', title: { en: 'About DEVixo — Web Development Company in Egypt', ar: 'عن ديفيكسو — شركة برمجة وتصميم مواقع في مصر' }, description: tr(lang, 'Devixo is a software development company led hands-on by its developer, building websites, stores and custom systems.', 'ديفيكسو شركة تطوير برمجيات يقودها مطوّرها بشكل مباشر، وتبني المواقع والمتاجر والأنظمة المخصصة.') }}>
       <PageHero
         lang={lang}
         crumbs={[{ label: t(ui.nav.about, lang) }]}
@@ -109,7 +109,7 @@ export function About({ lang }: { lang: Lang }) {
 /* --------------------------- Technologies -------------------------- */
 export function Technologies({ lang }: { lang: Lang }) {
   return (
-    <Layout meta={{ lang, path: 'technologies', title: ui.nav.technologies, description: tr(lang, 'The platforms, languages, frameworks, databases and tools Devixo uses — organized by what they do.', 'المنصات واللغات وأطر العمل وقواعد البيانات والأدوات التي تستخدمها ديفيكسو — مصنفة حسب وظيفتها.') }}>
+    <Layout meta={{ lang, path: 'technologies', title: { en: 'Technologies — Shopify, React, Next.js & More', ar: 'التقنيات — شوبيفاي وReact وNext.js وغيرها' }, description: tr(lang, 'The platforms, languages, frameworks, databases and tools Devixo uses — organized by what they do.', 'المنصات واللغات وأطر العمل وقواعد البيانات والأدوات التي تستخدمها ديفيكسو — مصنفة حسب وظيفتها.') }}>
       <PageHero
         lang={lang}
         crumbs={[{ label: t(ui.nav.technologies, lang) }]}
@@ -169,7 +169,7 @@ export function Technologies({ lang }: { lang: Lang }) {
 /* -------------------------------- FAQ ------------------------------ */
 export function FaqPage({ lang }: { lang: Lang }) {
   return (
-    <Layout meta={{ lang, path: 'faq', title: ui.nav.faq, description: tr(lang, 'Answers about Devixo projects, Shopify, timelines, ownership, hosting and support.', 'إجابات عن مشاريع ديفيكسو وشوبيفاي والمدد والملكية والاستضافة والدعم.') }}>
+    <Layout meta={{ lang, path: 'faq', title: { en: 'FAQ — Website & Shopify Store Development Questions', ar: 'أسئلة شائعة عن تصميم المواقع ومتاجر شوبيفاي' }, description: tr(lang, 'Answers about Devixo projects, Shopify, timelines, ownership, hosting and support.', 'إجابات عن مشاريع ديفيكسو وشوبيفاي والمدد والملكية والاستضافة والدعم.') }}>
       <PageHero
         lang={lang}
         crumbs={[{ label: t(ui.nav.faq, lang) }]}
@@ -204,7 +204,7 @@ const fmtDate = (d: string, lang: Lang) => new Date(d).toLocaleDateString(lang =
 
 export function Blog({ lang }: { lang: Lang }) {
   return (
-    <Layout meta={{ lang, path: 'blog', title: ui.nav.blog, description: tr(lang, 'Practical articles on e-commerce, websites and business systems.', 'مقالات عملية عن التجارة الإلكترونية والمواقع وأنظمة الأعمال.') }}>
+    <Layout meta={{ lang, path: 'blog', title: { en: 'Blog — E-commerce, Websites & Business Software Tips', ar: 'المدونة — نصائح عن المتاجر الإلكترونية والمواقع والأنظمة' }, description: tr(lang, 'Practical articles on e-commerce, websites and business systems.', 'مقالات عملية عن التجارة الإلكترونية والمواقع وأنظمة الأعمال.') }}>
       <PageHero
         lang={lang}
         crumbs={[{ label: t(ui.nav.blog, lang) }]}

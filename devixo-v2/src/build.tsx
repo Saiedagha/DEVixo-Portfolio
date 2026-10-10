@@ -44,11 +44,18 @@ fs.writeFileSync(
 );
 
 // Sitemap + robots
+const today = new Date().toISOString().slice(0, 10);
+const loc = (l: string, p: string) => `https://www.devixo-eg.site/${l}/${p ? p + '/' : ''}`;
 const urls = sitemapPaths()
-  .flatMap((p) => LANGS.map((l) => `https://www.devixo-eg.site/${l}/${p ? p + '/' : ''}`))
-  .map((u) => `<url><loc>${u}</loc></url>`)
+  .flatMap((p) =>
+    LANGS.map((l) => {
+      const pri = p === '' ? '1.0' : p.startsWith('services') ? '0.9' : p.startsWith('work') ? '0.7' : '0.6';
+      const alts = LANGS.map((a) => `<xhtml:link rel="alternate" hreflang="${a}" href="${loc(a, p)}"/>`).join('') + `<xhtml:link rel="alternate" hreflang="x-default" href="${loc('en', p)}"/>`;
+      return `<url><loc>${loc(l, p)}</loc><lastmod>${today}</lastmod><priority>${pri}</priority>${alts}</url>`;
+    }),
+  )
   .join('');
-fs.writeFileSync(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}</urlset>`);
+fs.writeFileSync(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${urls}</urlset>`);
 fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nDisallow: /admin/\nSitemap: https://www.devixo-eg.site/sitemap.xml\n`);
 fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
 

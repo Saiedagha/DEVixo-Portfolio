@@ -53,8 +53,8 @@ export const services: Service[] = [
     relatedTech: ['shopify', 'liquid', 'woocommerce'],
     faqIds: ['platform-vs-custom', 'shopify', 'integrations'],
     seo: {
-      title: { en: 'E-commerce & Shopify Store Development', ar: 'تطوير المتاجر الإلكترونية وشوبيفاي' },
-      description: { en: 'Shopify setup, theme customization, Liquid development, payments, shipping and store migration by Devixo.', ar: 'إعداد شوبيفاي وتخصيص الثيمات وبرمجة Liquid وربط الدفع والشحن ونقل المتاجر مع ديفيكسو.' },
+      title: { en: 'Shopify & E-commerce Store Design and Development in Egypt', ar: 'تصميم متجر إلكتروني ومتاجر شوبيفاي في مصر والخليج' },
+      description: { en: 'Shopify store design and development in Egypt and the GCC: store setup, custom themes, Liquid, Arabic/English storefronts, payments, shipping and migration.', ar: 'تصميم متجر إلكتروني احترافي على شوبيفاي في مصر والخليج: إنشاء المتجر، ثيمات مخصصة، برمجة Liquid، متجر عربي وإنجليزي، ربط الدفع والشحن ونقل المتاجر.' },
     },
   },
   {
@@ -87,8 +87,8 @@ export const services: Service[] = [
     relatedTech: ['html', 'css', 'javascript', 'react', 'nextjs'],
     faqIds: ['project-types', 'timelines', 'hosting'],
     seo: {
-      title: { en: 'Website Design & Development', ar: 'تصميم وتطوير المواقع' },
-      description: { en: 'Corporate websites, landing pages, catalogs, booking sites and redesigns — responsive, bilingual and easy to update.', ar: 'مواقع شركات وصفحات هبوط وكتالوجات ومواقع حجز وإعادة تصميم — متجاوبة وثنائية اللغة وسهلة التحديث.' },
+      title: { en: 'Website Design & Development Company in Egypt', ar: 'شركة تصميم مواقع إلكترونية احترافية في مصر' },
+      description: { en: 'Website design and development in Egypt: corporate websites, landing pages, booking and catalog sites — fast, responsive, Arabic and English, SEO-ready.', ar: 'تصميم وبرمجة مواقع إلكترونية في مصر: مواقع شركات، صفحات هبوط، مواقع حجز وكتالوج — سريعة ومتجاوبة مع الموبايل وبالعربي والإنجليزي ومهيأة لمحركات البحث.' },
     },
   },
   {
@@ -123,7 +123,7 @@ export const services: Service[] = [
     relatedTech: ['react', 'nextjs', 'typescript', 'nodejs', 'supabase'],
     faqIds: ['platform-vs-custom', 'ownership', 'timelines'],
     seo: {
-      title: { en: 'Custom Software & Web Application Development', ar: 'تطوير البرمجيات وتطبيقات الويب المخصصة' },
+      title: { en: 'Custom Software & Web Application Development', ar: 'برمجة تطبيقات ويب وأنظمة خاصة حسب الطلب' },
       description: { en: 'Custom web apps, admin dashboards, role-based access, APIs and SaaS platforms built around your workflow.', ar: 'تطبيقات ويب ولوحات تحكم وصلاحيات وواجهات برمجية ومنصات SaaS مبنية حول طريقة عملك.' },
     },
   },
@@ -150,7 +150,7 @@ export const services: Service[] = [
     relatedTech: ['react', 'nextjs', 'nodejs', 'supabase'],
     faqIds: ['platform-vs-custom', 'timelines', 'maintenance'],
     seo: {
-      title: { en: 'Business Management Systems — ERP, CRM, Inventory, POS', ar: 'أنظمة إدارة الأعمال — ERP وCRM والمخزون ونقاط البيع' },
+      title: { en: 'Business Management Systems Development — ERP, CRM, Inventory, POS', ar: 'برمجة أنظمة إدارة الشركات — ERP وCRM والمخزون ونقاط البيع' },
       description: { en: 'Custom ERP, CRM, inventory, POS, HR, clinic, school and restaurant management systems scoped to your requirements.', ar: 'أنظمة ERP وCRM ومخزون ونقاط بيع وموارد بشرية وعيادات ومدارس ومطاعم حسب متطلباتك.' },
     },
   },
@@ -184,7 +184,7 @@ export const services: Service[] = [
     relatedTech: ['react-native', 'firebase', 'supabase'],
     faqIds: ['project-types', 'timelines', 'ownership'],
     seo: {
-      title: { en: 'Mobile App Development — Android & iOS', ar: 'تطوير تطبيقات الموبايل — أندرويد وiOS' },
+      title: { en: 'Mobile App Development — Android & iOS', ar: 'برمجة تطبيقات موبايل أندرويد وiOS' },
       description: { en: 'Cross-platform Android and iOS apps connected to your website, store or business system.', ar: 'تطبيقات أندرويد وiOS متعددة المنصات مرتبطة بموقعك أو متجرك أو نظامك.' },
     },
   },
@@ -220,7 +220,7 @@ export const services: Service[] = [
     relatedTech: ['figma'],
     faqIds: ['project-types', 'ownership'],
     seo: {
-      title: { en: 'UI/UX Design — Flows, Wireframes, Interfaces', ar: 'تصميم الواجهات وتجربة المستخدم' },
+      title: { en: 'UI/UX Design for Websites, Stores & Apps', ar: 'تصميم واجهات المستخدم UI/UX للمواقع والتطبيقات' },
       description: { en: 'Discovery, information architecture, user flows, wireframes, interface design and developer handoff.', ar: 'الاستكشاف وهيكلة المعلومات ومسارات المستخدم والمخططات الأولية وتصميم الواجهات والتسليم.' },
     },
   },
@@ -254,7 +254,7 @@ export const services: Service[] = [
     relatedTech: ['nodejs', 'rest', 'supabase'],
     faqIds: ['integrations', 'hosting'],
     seo: {
-      title: { en: 'Integrations & Workflow Automation', ar: 'التكاملات وأتمتة سير العمل' },
+      title: { en: 'Payment, Shipping & API Integrations and Automation', ar: 'ربط بوابات الدفع وشركات الشحن وأتمتة الأعمال' },
       description: { en: 'Payment gateways, shipping, external APIs, CRM and e-commerce integrations, and workflow automation.', ar: 'بوابات الدفع والشحن والواجهات البرمجية وتكامل أنظمة العملاء والمتاجر وأتمتة سير العمل.' },
     },
   },
@@ -288,7 +288,7 @@ export const services: Service[] = [
     relatedTech: ['github', 'vercel'],
     faqIds: ['maintenance', 'hosting'],
     seo: {
-      title: { en: 'Website Maintenance & Technical Support', ar: 'صيانة المواقع والدعم الفني' },
+      title: { en: 'Website & Shopify Store Maintenance and Support', ar: 'صيانة المواقع والمتاجر الإلكترونية والدعم الفني' },
       description: { en: 'Bug fixes, platform updates, performance monitoring, backups and ongoing improvements after launch.', ar: 'إصلاح الأخطاء وتحديثات المنصات ومتابعة الأداء والنسخ الاحتياطي والتحسين المستمر بعد الإطلاق.' },
     },
   },

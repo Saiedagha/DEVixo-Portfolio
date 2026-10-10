@@ -38,7 +38,7 @@ export function ServicesIndex({ lang }: { lang: Lang }) {
     ['wrench', tr(lang, 'My existing site needs fixes or improvements', 'موقعي الحالي يحتاج إصلاحات أو تحسينات'), 'maintenance-support'],
   ];
   return (
-    <Layout meta={{ lang, path: 'services', title: ui.nav.services, description: tr(lang, 'E-commerce, website, custom software, business systems, mobile apps, UI/UX, integrations and support by Devixo.', 'تطوير المتاجر والمواقع والبرمجيات المخصصة وأنظمة الأعمال وتطبيقات الموبايل والتصميم والتكاملات والدعم من ديفيكسو.') }}>
+    <Layout meta={{ lang, path: 'services', title: { en: 'Web Development, Shopify & Software Services in Egypt', ar: 'خدمات تصميم المواقع والمتاجر والبرمجة في مصر' }, description: tr(lang, 'E-commerce, website, custom software, business systems, mobile apps, UI/UX, integrations and support by Devixo.', 'تطوير المتاجر والمواقع والبرمجيات المخصصة وأنظمة الأعمال وتطبيقات الموبايل والتصميم والتكاملات والدعم من ديفيكسو.') }}>
       <PageHero
         lang={lang}
         crumbs={[{ label: t(ui.nav.services, lang) }]}
@@ -379,7 +379,7 @@ export function ServiceDetail({ lang, slug }: { lang: Lang; slug: string }) {
   const faqs = faqsById(s.faqIds);
   const others = services.filter((x) => x.slug !== slug).slice(0, 3);
   return (
-    <Layout meta={{ lang, path: `services/${slug}`, title: s.seo.title, description: s.seo.description }}>
+    <Layout meta={{ lang, path: `services/${slug}`, title: s.seo.title, description: s.seo.description, jsonLd: [{ '@type': 'Service', name: t(s.title, lang), serviceType: t(s.title, 'en'), description: t(s.seo.description, lang), provider: { '@id': 'https://www.devixo-eg.site/#organization' }, areaServed: ['Egypt', 'Saudi Arabia', 'Kuwait', 'United Arab Emirates', 'Canada'], url: `https://www.devixo-eg.site/${lang}/services/${slug}/`, inLanguage: lang }] }}>
       <PageHero
         lang={lang}
         crumbs={[{ label: t(ui.nav.services, lang), path: 'services' }, { label: t(s.title, lang) }]}

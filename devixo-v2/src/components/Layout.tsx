@@ -12,6 +12,8 @@ export type PageMeta = {
   noindex?: boolean;
   bodyClass?: string;
   ogImage?: string;
+  rawTitle?: boolean; // use title exactly (no ' | DEVixo' suffix)
+  jsonLd?: object[];
 };
 
 const Logo = ({ lang, variant = 'light' }: { lang: Lang; variant?: 'light' | 'dark' }) => (
@@ -166,12 +168,34 @@ function Footer({ lang, path }: { lang: Lang; path: string }) {
   );
 }
 
+const ORG_ID = `${site.domain}/#organization`;
+export const orgSchema = (lang: Lang) => ({
+  '@type': ['Organization', 'ProfessionalService'],
+  '@id': ORG_ID,
+  name: 'DEVixo',
+  alternateName: ['Devixo', 'ديفيكسو'],
+  url: `${site.domain}/${lang}/`,
+  logo: `${site.domain}/img/brand/logo-light.png`,
+  image: `${site.domain}/img/brand/og.png`,
+  description: t(site.homeDescription, lang),
+  telephone: site.phoneHref.replace('tel:', ''),
+  ...(site.email ? { email: site.email } : {}),
+  address: { '@type': 'PostalAddress', addressCountry: 'EG' },
+  areaServed: site.areaServed.map((n) => ({ '@type': 'Country', name: n })),
+  founder: { '@type': 'Person', name: 'Saied Agha', url: 'https://github.com/Saiedagha' },
+  sameAs: site.socials.map((x) => x.url),
+  knowsAbout: ['Website design', 'Web development', 'Shopify development', 'E-commerce development', 'Custom software development', 'ERP and CRM systems', 'UI/UX design', 'Mobile app development'],
+  contactPoint: { '@type': 'ContactPoint', telephone: site.phoneHref.replace('tel:', ''), contactType: 'sales', availableLanguage: ['Arabic', 'English'] },
+});
+export const orgId = ORG_ID;
+
 export function Layout({ meta, children }: { meta: PageMeta; children: React.ReactNode }) {
   const { lang, path } = meta;
   const title = t(meta.title as any, lang);
-  const fullTitle = path === '' ? `DEVixo — ${title}` : `${title} | DEVixo`;
+  const fullTitle = meta.rawTitle ? title : `${title} | DEVixo`;
   const desc = t(meta.description as any, lang);
   const url = (l: Lang) => `${site.domain}/${l}/${path ? path + '/' : ''}`;
+  const orgRef = path === '' ? orgSchema(lang) : { '@type': 'Organization', '@id': ORG_ID, name: 'DEVixo', url: `${site.domain}/${lang}/` };
   return (
     <html lang={lang} dir={dir(lang)}>
       <head>
@@ -191,7 +215,16 @@ export function Layout({ meta, children }: { meta: PageMeta; children: React.Rea
         <meta property="og:url" content={url(lang)} />
         <meta property="og:locale" content={lang === 'ar' ? 'ar_EG' : 'en_US'} />
         <meta property="og:image" content={site.domain + asset(meta.ogImage || 'img/brand/og.png')} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={fullTitle} />
+        <meta property="og:locale:alternate" content={lang === 'ar' ? 'en_US' : 'ar_EG'} />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={fullTitle} />
+        <meta name="twitter:description" content={desc} />
+        {site.verification.google && <meta name="google-site-verification" content={site.verification.google} />}
+        {site.verification.bing && <meta name="msvalidate.01" content={site.verification.bing} />}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@graph': [orgRef, ...(meta.jsonLd || [])] }) }} />
         <meta name="theme-color" content="#FFFFFF" />
         <link rel="icon" href={asset('img/brand/icon.png')} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

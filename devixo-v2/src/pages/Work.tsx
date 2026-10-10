@@ -18,7 +18,7 @@ export function Work({ lang }: { lang: Lang }) {
   const list = projects.filter((p) => p.status === 'published');
   const ordered = [...list.filter((p) => p.featured), ...list.filter((p) => !p.featured)];
   return (
-    <Layout meta={{ lang, path: 'work', title: ui.nav.work, description: tr(lang, 'E-commerce stores, company websites and custom builds delivered by Devixo — with links to the live sites.', 'متاجر إلكترونية ومواقع شركات ومشاريع مبرمجة من تنفيذ ديفيكسو — مع روابط المواقع الحية.') }}>
+    <Layout meta={{ lang, path: 'work', title: { en: 'Our Work — Shopify Stores & Website Portfolio', ar: 'أعمالنا — نماذج متاجر ومواقع من تنفيذ ديفيكسو' }, description: tr(lang, 'E-commerce stores, company websites and custom builds delivered by Devixo — with links to the live sites.', 'متاجر إلكترونية ومواقع شركات ومشاريع مبرمجة من تنفيذ ديفيكسو — مع روابط المواقع الحية.') }}>
       <PageHero
         lang={lang}
         crumbs={[{ label: t(ui.nav.work, lang) }]}
@@ -84,7 +84,7 @@ export function CaseStudy({ lang, slug }: { lang: Lang; slug: string }) {
   const related = projects.filter((x) => x.slug !== slug && x.categories.some((c) => p.categories.includes(c))).slice(0, 3);
   const similarHref = `${href(lang, 'contact')}?type=${p.categories.includes('ecommerce') ? 'ecommerce' : p.categories.includes('custom') ? 'custom' : 'website'}&project=${encodeURIComponent(p.title)}`;
   return (
-    <Layout meta={{ lang, path: `work/${slug}`, title: `${p.title} — ${t(p.subtitle, lang)}`, description: t(p.summary, lang), ogImage: p.image ? `img/projects/${p.image}` : undefined }}>
+    <Layout meta={{ lang, path: `work/${slug}`, title: `${p.title} — ${t(p.subtitle, lang)}`, description: t(p.summary, lang).slice(0, 300), ogImage: p.image ? `img/projects/${p.image}` : undefined, jsonLd: [{ '@type': 'CreativeWork', name: p.title, headline: `${p.title} — ${t(p.subtitle, 'en')}`, description: t(p.summary, lang), url: `https://www.devixo-eg.site/${lang}/work/${slug}/`, image: p.image ? `https://www.devixo-eg.site/img/projects/${p.image}` : undefined, creator: { '@id': 'https://www.devixo-eg.site/#organization' }, inLanguage: lang, about: t(p.industry, 'en') }] }}>
       <section className="page-hero case-hero">
         <div className="container">
           <nav className="breadcrumbs" aria-label={t(ui.nav.breadcrumb, lang)}>

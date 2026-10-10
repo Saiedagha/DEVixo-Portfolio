@@ -36,7 +36,7 @@ export function Home({ lang }: { lang: Lang }) {
   ];
   const stackCats = techCategories.filter((c) => ['ecommerce', 'frontend', 'backend', 'data', 'tooling'].includes(c.id));
   return (
-    <Layout meta={{ lang, path: '', title: site.tagline, description: site.description, bodyClass: 'page-home' }}>
+    <Layout meta={{ lang, path: '', title: site.homeTitle, rawTitle: true, description: site.homeDescription, bodyClass: 'page-home', jsonLd: [{ '@type': 'WebSite', '@id': `${site.domain}/#website`, url: `${site.domain}/${lang}/`, name: 'DEVixo', inLanguage: lang, publisher: { '@id': `${site.domain}/#organization` } }] }}>
       {/* B — Hero */}
       <section className="hero">
         <div className="container hero-grid">

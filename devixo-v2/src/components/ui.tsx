@@ -123,7 +123,7 @@ export function ProjectShot({ p, lang, eager }: { p: Project; lang: Lang; eager?
       </div>
       <div className="browser-view">
         {p.image ? (
-          <img src={asset(`img/projects/${p.image}`)} alt={lang === 'ar' ? `واجهة موقع ${p.title}` : `${p.title} website homepage`} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+          <img src={asset(`img/projects/${p.image}`)} alt={lang === 'ar' ? `الصفحة الرئيسية لموقع ${p.title} — ${p.subtitle.ar}` : `${p.title} homepage — ${p.subtitle.en}`} width={1200} height={750} loading={eager ? 'eager' : 'lazy'} decoding="async" />
         ) : (
           <div className="shot-placeholder" style={{ ['--ph' as any]: p.accent }}>
             <span className="shot-name">{p.title}</span>
