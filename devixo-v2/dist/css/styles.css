@@ -1036,3 +1036,35 @@ div.filter-empty[hidden] { display: none; }
 .review-shot figcaption a { display: inline-flex; align-items: center; gap: 4px; color: var(--accent); font-weight: 700; text-decoration: none; }
 .case-reviews { max-width: 640px; }
 .review-shot > a { display: block; cursor: zoom-in; border-radius: 10px; }
+
+/* ==========================================================================
+   Mobile carousels (≤760px): long card lists become swipeable rows
+   ========================================================================== */
+@media (max-width: 760px) {
+  .m-carousel {
+    display: flex !important; flex-wrap: nowrap; gap: 14px; columns: auto;
+    overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    margin-inline: calc(-1 * var(--gutter)); padding: 4px var(--gutter) 12px; scroll-padding-inline: var(--gutter);
+    scrollbar-width: none; border: 0 !important; list-style: none;
+  }
+  .m-carousel::-webkit-scrollbar { display: none; }
+  .m-carousel > * { flex: 0 0 86%; max-width: 86%; scroll-snap-align: start; margin: 0 !important; grid-column: auto !important; }
+  .m-carousel > [hidden], .m-carousel > .filter-empty[hidden] { display: none !important; }
+  .m-carousel > .filter-empty { flex-basis: 100%; max-width: 100%; }
+  /* Items that were rows/lines on desktop get a card look */
+  .m-carousel.offer-grid > .offer, .m-carousel.why-list > li, .m-carousel.criteria > .criterion {
+    border: 1px solid var(--line) !important; border-radius: var(--r-lg); background: #fff; padding: 22px;
+  }
+  .m-carousel.why-list > li { border-top-color: var(--line) !important; }
+  .m-carousel.criteria > .criterion { border-top: 2px solid var(--ink) !important; }
+  .m-carousel.platforms > .platform.is-primary { grid-row: auto; }
+  .m-carousel.type-grid > * { flex-basis: 72%; max-width: 72%; }
+  .m-carousel.testimonial-grid > .review-shot { flex-basis: 90%; max-width: 90%; align-self: flex-start; }
+  .m-dots { display: flex; justify-content: center; align-items: center; gap: 6px; margin-top: 8px; }
+  .m-dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; background: var(--line-strong); transition: width .25s var(--ease), background .25s; }
+  .m-dots button[aria-current='true'] { width: 22px; background: var(--accent); }
+  .m-dots button::before { content: ''; position: absolute; inset: -14px -6px; }
+  .m-dots button { position: relative; }
+  .tone-dark .m-dots button { background: var(--dark-line); }
+}
+@media (min-width: 761px) { .m-dots { display: none; } }

@@ -292,3 +292,55 @@
     });
   }, { passive: true });
 })();
+
+/* Mobile carousels: mark long lists, add dot indicators */
+(function () {
+  'use strict';
+  var sel = [
+    '#testimonials .testimonial-grid', '#services > .container > .grid', '#home-projects', '#why .why-list',
+    '.offer-grid', '.type-grid', '.criteria', '.platforms', '.principles',
+    '.section .grid.grid-3', '.section .grid.grid-4', '.case-reviews',
+  ].join(',');
+  var mq = window.matchMedia('(max-width: 760px)');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isAr = document.documentElement.lang === 'ar';
+  document.querySelectorAll(sel).forEach(function (track) {
+    if (track.closest('.case-gallery')) return;
+    track.classList.add('m-carousel');
+    var items = function () { return Array.prototype.filter.call(track.children, function (c) { return !c.hidden && !c.classList.contains('filter-empty') && c.tagName !== 'SCRIPT'; }); };
+    var dots = document.createElement('div');
+    dots.className = 'm-dots';
+    dots.setAttribute('role', 'tablist');
+    track.after(dots);
+    var io;
+    function build() {
+      dots.innerHTML = '';
+      if (io) io.disconnect();
+      var list = items();
+      if (!mq.matches || list.length < 2) { dots.hidden = true; return; }
+      dots.hidden = false;
+      list.forEach(function (item, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', (isAr ? 'العنصر ' : 'Item ') + (i + 1));
+        if (i === 0) b.setAttribute('aria-current', 'true');
+        b.addEventListener('click', function () { item.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', inline: 'start', block: 'nearest' }); });
+        dots.appendChild(b);
+      });
+      io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting && en.intersectionRatio > 0.6) {
+            var idx = list.indexOf(en.target);
+            Array.prototype.forEach.call(dots.children, function (d, j) { d.setAttribute('aria-current', String(j === idx)); });
+            en.target.classList.add('is-in');
+          }
+        });
+      }, { root: track, threshold: [0.6] });
+      list.forEach(function (it) { io.observe(it); });
+    }
+    build();
+    mq.addEventListener ? mq.addEventListener('change', build) : mq.addListener(build);
+    // Rebuild when portfolio filters hide/show cards
+    Array.prototype.forEach.call(track.children, function (c) { new MutationObserver(build).observe(c, { attributes: true, attributeFilter: ['hidden'] }); });
+  });
+})();
