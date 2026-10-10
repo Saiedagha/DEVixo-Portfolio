@@ -15,6 +15,6 @@ jobs:
           done
           curl -sSL https://www.devixo-eg.site/sitemap.xml -o out/sitemap.xml
           curl -sSL https://www.devixo-eg.site/robots.txt -o out/robots.txt
-          python3 -c "import xml.dom.minidom,sys;xml.dom.minidom.parse('out/sitemap.xml');print('live sitemap parses as XML')" >> out/probe.txt 2>&1 || echo "PARSE FAILED" >> out/probe.txt
+          python3 -c "import xml.dom.minidom,sys;d=xml.dom.minidom.parse("out/sitemap.xml");print("live sitemap parses as XML, urls=",len(d.getElementsByTagName("url")),"xhtml=","xhtml" in open("out/sitemap.xml").read())" >> out/probe.txt 2>&1 || echo "PARSE FAILED" >> out/probe.txt
           cd out && git init -q && git checkout -q -b probe && git add . && git -c user.name=a -c user.email=a@a commit -qm probe
           git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" probe
